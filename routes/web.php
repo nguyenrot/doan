@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('admin')->group(function (){
+    Route::get('/login',[
+        'as'=>'admin.login',
+        'uses'=>'App\Http\Controllers\AdminLoginController@login'
+    ]);
+    Route::post('/login',[
+        'as'=>'admin.loginPost',
+        'uses'=>'App\Http\Controllers\AdminLoginController@loginPost'
+    ]);
+});
+
+Route::prefix('/')->group(function (){
+    Route::get('/login',[
+        'as'=>'user.login',
+        'uses'=>'App\Http\Controllers\UserLoginController@login'
+    ]);
+    Route::post('/login',[
+        'as'=>'user.loginPost',
+        'uses'=>'App\Http\Controllers\UserLoginController@loginPost'
+    ]);
 });
