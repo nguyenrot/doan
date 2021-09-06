@@ -16,11 +16,11 @@
     <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
         <div class="wrapper">
 
-        @include('partials.admin.sidebar')
+        @include('admins.partials.sidebar')
             <div class="content-page">
                 <div class="content">
 
-                    @include('partials.admin.header')
+                    @include('admins.partials.header')
 
                     <div class="container-fluid">
 
@@ -29,12 +29,12 @@
                     </div>
                 </div>
 
-                @include('partials.admin.footer')
+                @include('admins.partials.footer')
 
             </div>
         </div>
 
-        @include('partials.admin.setting')
+        @include('admins.partials.setting')
 
         <div class="rightbar-overlay"></div>
 

@@ -33,17 +33,35 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="emailaddress" class="form-label">Email</label>
-                                <input name="email" class="form-control" type="email" id="emailaddress" required="" placeholder="Nhập email">
+                                <input name="email" class="form-control @error('email') is-invalid @enderror" type="email" id="emailaddress" required="" placeholder="Nhập email">
                             </div>
+                            @error('email')
+                                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group input-group-merge">
                                     <input name="password" type="password" id="password" class="form-control" placeholder="Nhập password">
-                                    <div class="input-group-text" data-password="false">
+                                    <div class="input-group-text @error('password') is-invalid @enderror" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
                                 </div>
                             </div>
+                            @error('password')
+                                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+                            @if(isset($message))
+                                <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
                             <div class="mb-3 mb-3">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="checkbox-signin" checked name="remember_me">

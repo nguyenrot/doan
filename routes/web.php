@@ -16,21 +16,27 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function (){
     Route::get('/login',[
         'as'=>'admin.login',
-        'uses'=>'App\Http\Controllers\AdminLoginController@login'
+        'uses'=>'App\Http\Controllers\AdminLoginController@login',
     ]);
     Route::post('/login',[
         'as'=>'admin.loginPost',
-        'uses'=>'App\Http\Controllers\AdminLoginController@loginPost'
+        'uses'=>'App\Http\Controllers\AdminLoginController@loginPost',
+    ]);
+    Route::get('/logout',[
+        'as'=>'admin.logout',
+        'uses'=>'App\Http\Controllers\AdminLoginController@logout',
     ]);
 });
 
-Route::prefix('/')->group(function (){
-    Route::get('/login',[
-        'as'=>'user.login',
-        'uses'=>'App\Http\Controllers\UserLoginController@login'
+Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
+    Route::get('/dashboard',[
+       'as'=>'admin.dashboard.index',
+       'uses'=>'App\Http\Controllers\AdminDashboardController@index',
     ]);
-    Route::post('/login',[
-        'as'=>'user.loginPost',
-        'uses'=>'App\Http\Controllers\UserLoginController@loginPost'
-    ]);
+    Route::prefix('categories')->group(function (){
+        Route::get('/',[
+            'as' =>'categories.index',
+            'uses' => 'App\Http\Controllers\AdminCategoryController@index',
+        ]);
+    });
 });
