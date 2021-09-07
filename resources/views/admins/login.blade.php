@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <title>Đăng nhập | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Chuyên bán linh kiện máy tính tại Việt Nam" name="description" />
     <meta content="Coderthemes" name="author" />
-    <link rel="shortcut icon" href="{{asset('resource/assets/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('resource/assets/images/logo_sm.png')}}">
     <link href="{{asset('resource/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('resource/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style" />
     <link href="{{asset('resource/assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style" />

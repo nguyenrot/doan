@@ -87,4 +87,36 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses' => 'App\Http\Controllers\AdminMenuController@delete',
         ]);
     });
+
+    Route::prefix('product')->group(function (){
+        Route::get('/',[
+            'as'=>'product.index',
+            'uses'=> 'App\Http\Controllers\AdminSanphamController@index',
+        ]);
+        Route::get('/create',[
+            'as'=>'product.create',
+            'uses'=> 'App\Http\Controllers\AdminSanphamController@create',
+        ]);
+        Route::post('/store',[
+            'as'=>'product.store',
+            'uses'=>'App\Http\Controllers\AdminSanphamController@store',
+        ]);
+        Route::get('/edit/{id}',[
+            'as'=>'product.edit',
+            'uses' => 'App\Http\Controllers\AdminSanphamController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'product.update',
+            'uses' => 'App\Http\Controllers\AdminSanphamController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'product.delete',
+            'uses' => 'App\Http\Controllers\AdminSanphamController@delete',
+        ]);
+        Route::get('/active/{id}',[
+            'as'=>'product.active',
+            'uses' => 'App\Http\Controllers\AdminSanphamController@active',
+        ]);
+    });
+
 });

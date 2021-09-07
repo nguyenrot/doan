@@ -60,20 +60,20 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link font-18">
                     <i class="uil-briefcase"></i>
                     <span> Sản phẩm </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarProjects">
-{{--                    <ul class="side-nav-second-level">--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('product.index')}}">Xem</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('product.create')}}">Thêm</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('product.index')}}" class="font-16">Xem</a>
+                        </li>
+                        <li>
+                            <a href="{{route('product.create')}}" class="font-16">Thêm</a>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li class="side-nav-item">

@@ -13,7 +13,7 @@ var editor_config_mota = {
         var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
         var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-        var cmsURL = editor_config.path_absolute + 'filemanager?editor=' + meta.fieldname;
+        var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
         if (meta.filetype == 'image') {
             cmsURL = cmsURL + "&type=Images";
         } else {
