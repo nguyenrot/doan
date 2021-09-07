@@ -25,7 +25,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <a href="{{route('categories.index')}}" class="btn btn-secondary btn-rounded ">Quay về</a>
+                    <a href="{{route('categories.index')}}" class="btn btn-secondary btn-rounded font-16">Quay về</a>
                     <div class="tab-content">
                         <form action="{{route('categories.update',['id'=>$danhmuc->id])}}" method="post" class="font-16">
                             @csrf

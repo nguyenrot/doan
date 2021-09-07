@@ -26,12 +26,12 @@
             </li>
             <li class="side-nav-title side-nav-item font-12">Chức năng</li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link font-18">
+                <a data-bs-toggle="collapse" href="#sidebarDanhMuc" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link font-18">
                     <i class="uil-store"></i>
                     <span> Danh mục </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarEcommerce">
+                <div class="collapse" id="sidebarDanhMuc">
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="{{route('categories.index')}}" class="font-16">Xem</a>
@@ -43,20 +43,20 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarEmail" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarMenu" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link font-18">
                     <i class="uil-envelope"></i>
                     <span> Hãng phụ kiện </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarEmail">
-{{--                    <ul class="side-nav-second-level">--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('menu.index')}}">Xem</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('menu.create')}}">Thêm</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                <div class="collapse" id="sidebarMenu">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('menu.index')}}" class="font-16">Xem</a>
+                        </li>
+                        <li>
+                            <a href="{{route('menu.create')}}" class="font-16">Thêm</a>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li class="side-nav-item">

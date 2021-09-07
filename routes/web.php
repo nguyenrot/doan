@@ -33,6 +33,7 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
        'as'=>'admin.dashboard.index',
        'uses'=>'App\Http\Controllers\AdminDashboardController@index',
     ]);
+
     Route::prefix('categories')->group(function (){
         Route::get('/',[
             'as' =>'categories.index',
@@ -57,6 +58,33 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
         Route::get('/delete/{id}',[
             'as'=>'categories.delete',
             'uses' => 'App\Http\Controllers\AdminCategoryController@delete',
+        ]);
+    });
+
+    Route::prefix('menu')->group(function (){
+        Route::get('/',[
+            'as'=>'menu.index',
+            'uses' => 'App\Http\Controllers\AdminMenuController@index',
+        ]);
+        Route::get('/create',[
+            'as'=>'menu.create',
+            'uses'=>'App\Http\Controllers\AdminMenuController@create',
+        ]);
+        Route::post('/store',[
+            'as'=>'menu.store',
+            'uses'=>'App\Http\Controllers\AdminMenuController@store',
+        ]);
+        Route::get('/edit/{id}',[
+            'as'=>'menu.edit',
+            'uses' => 'App\Http\Controllers\AdminMenuController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'menu.update',
+            'uses' => 'App\Http\Controllers\AdminMenuController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'menu.delete',
+            'uses' => 'App\Http\Controllers\AdminMenuController@delete',
         ]);
     });
 });

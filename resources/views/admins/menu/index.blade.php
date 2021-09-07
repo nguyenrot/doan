@@ -1,6 +1,6 @@
 @extends('admins.layouts.admin')
 @section('title')
-    <title>Danh mục</title>
+    <title>Hãng phụ kiện</title>
 @endsection
 @section('link_css')
 
@@ -12,10 +12,10 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Admin</a></li>
-                        <li class="breadcrumb-item active font-16"><a href="javascript: void(0);">Danh mục</a></li>
+                        <li class="breadcrumb-item active font-16"><a href="javascript: void(0);">Hãng phụ kiện</a></li>
                     </ol>
                 </div>
-                <h2 class="page-title font-24">Danh mục</h2>
+                <h2 class="page-title font-24">Hãng phụ kiện</h2>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-rounded font-16 mb-3">Thêm danh mục</a>
+                    <a href="{{route('menu.create')}}" class="btn btn-primary btn-rounded mb-3 font-16">Thêm hãng phụ kiện</a>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="striped-rows-preview">
                             <div class="table-responsive-sm">
@@ -37,14 +37,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($danhmucs as $danhmuc)
+                                    @foreach($menus as $menu)
                                         <tr>
-                                            <td>{{$danhmuc->id}}</td>
-                                            <td>{{$danhmuc->name}}</td>
-                                            <td>{{$danhmuc->description}}</td>
+                                            <td>{{$menu->id}}</td>
+                                            <td>{{$menu->name}}</td>
+                                            <td>{{$menu->description}}</td>
                                             <td class="table-action text-center">
-                                                <a href="{{route('categories.edit',['id'=>$danhmuc->id])}}" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil"></i>Sửa</a>
-                                                <a href="javascript: void(0);" data-url="{{route('categories.delete',['id'=>$danhmuc->id])}}" class="btn btn-outline-dark btn-rounded action_delete"> <i class="mdi mdi-delete"></i>Xóa</a>
+                                                <a href="{{route('menu.edit',['id'=>$menu->id])}}" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil"></i>Sửa</a>
+                                                <a href="javascript: void(0);" data-url="{{route('menu.delete',['id'=>$menu->id])}}" class="btn btn-outline-dark btn-rounded action_delete"> <i class="mdi mdi-delete"></i>Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="mt-3 text-center d-flex justify-content-center">
-                        {{$danhmucs->links()}}
+                        {{$menus->links()}}
                     </div>
                 </div>
             </div>

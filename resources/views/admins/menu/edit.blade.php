@@ -1,6 +1,6 @@
 @extends('admins.layouts.admin')
 @section('title')
-    <title>Thêm danh mục</title>
+    <title>Sửa hãng phụ kiện</title>
 @endsection
 @section('link_css')
 
@@ -12,11 +12,11 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Admin</a></li>
-                        <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Danh mục</a></li>
-                        <li class="breadcrumb-item active font-16">Thêm danh mục</li>
+                        <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Hãng phụ kiện</a></li>
+                        <li class="breadcrumb-item active font-16">Sửa hãng phụ kiện</li>
                     </ol>
                 </div>
-                <h2 class="page-title font-24">Thêm danh mục</h2>
+                <h2 class="page-title font-24">Sửa hãng phụ kiện</h2>
             </div>
         </div>
     </div>
@@ -25,20 +25,20 @@
             <div class="card">
                 <div class="card-body">
 
-                    <a href="{{route('categories.index')}}" class="btn btn-secondary btn-rounded font-16 ">Quay về</a>
+                    <a href="{{route('menu.index')}}" class="btn btn-secondary btn-rounded ">Quay về</a>
                     <div class="tab-content">
-                        <form action="{{route('categories.store')}}" method="post" class="font-16">
+                        <form action="{{route('menu.update',['id'=>$menu->id])}}" method="post" class="font-16">
                             @csrf
-                            <h4 class="mb-1 mt-3">Tên danh mục</h4>
+                            <h5 class="mb-1 mt-3">Tên hãng phụ kiện</h5>
                             <div class="tab-pane show active" id="striped-rows-preview">
                                 <div class="form-floating mb-3">
-                                    <input name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên danh mục" required />
-                                    <label for="floatingInput">Tên danh mục</label>
+                                    <input value="{{$menu->name}}" name="name" type="text" class="form-control" id="floatingInput" placeholder="Tên hãng phụ kiện" required/>
+                                    <label for="floatingInput">Tên hãng phụ kiện</label>
                                 </div>
                             </div>
-                            <h4 class="mb-1 mt-3">Mô tả</h4>
+                            <h5 class="mb-1 mt-3">Mô tả</h5>
                             <div class="form-floating">
-                                <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px;" required></textarea>
+                                <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px;" required>{{$menu->description}}</textarea>
                                 <label for="floatingTextarea">Mô tả</label>
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Submit</button>
