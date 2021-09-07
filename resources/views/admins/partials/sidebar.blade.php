@@ -77,20 +77,20 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link font-18">
                     <i class="uil-clipboard-alt"></i>
                     <span> Khuyến mãi </span>
                     <span class="menu-arrow"></span>
                 </a>
                 <div class="collapse" id="sidebarTasks">
-{{--                    <ul class="side-nav-second-level">--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('khuyenmai.index')}}">Xem</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('khuyenmai.create')}}">Thêm</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('khuyenmai.index')}}" class="font-16">Xem</a>
+                        </li>
+                        <li>
+                            <a href="{{route('khuyenmai.create')}}" class="font-16">Thêm</a>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li class="side-nav-item">

@@ -5,7 +5,6 @@
 @section('link_css')
     <link href="{{asset('adminv18/assets/css/vendor/simplemde.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('adminv18/assets/css/vendor/quill.bubble.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('vendor/FroalaEditer/froala_editor.pkgd.min.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 @section('container-fluid')
     <div class="row">

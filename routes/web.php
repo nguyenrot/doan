@@ -125,4 +125,42 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
         ]);
     });
 
+    Route::prefix('khuyenmai')->group(function (){
+        Route::get('/',[
+            'as'=>'khuyenmai.index',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@index',
+        ]);
+        Route::get('/create',[
+            'as'=>'khuyenmai.create',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@create',
+        ]);
+        Route::post('/store',[
+            'as'=>'khuyenmai.store',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@store',
+        ]);
+        Route::get('/edit/{id}',[
+            'as'=>'khuyenmai.edit',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'khuyenmai.update',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'khuyenmai.delete',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@delete',
+        ]);
+        Route::get('/add_product/{id}',[
+            'as'=>'khuyenmai.add_product',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@add_product',
+        ]);
+        Route::post('/post_add_product/{id}',[
+            'as'=>'khuyenmai.post_add_product',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@post_add_product',
+        ]);
+        Route::get('/active_product/{id}',[
+            'as'=>'khuyenmai.active_product',
+            'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@active_product',
+        ]);
+    });
 });
