@@ -1,4 +1,4 @@
-var editor_config_mota = {
+let editor_config_mota = {
     path_absolute : "/",
     selector: 'textarea.my-editor',
     relative_urls: false,
@@ -10,10 +10,10 @@ var editor_config_mota = {
     ],
     toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
     file_picker_callback : function(callback, value, meta) {
-        var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-        var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+        let x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+        let y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
-        var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
+        let cmsURL = editor_config_mota.path_absolute + 'filemanager?editor=' + meta.fieldname;
         if (meta.filetype == 'image') {
             cmsURL = cmsURL + "&type=Images";
         } else {
@@ -31,8 +31,10 @@ var editor_config_mota = {
                 callback(message.content);
             }
         });
+        console.log(cmsURL)
     }
 };
+
 var editor_config_cauhinh = {
     path_absolute : "/",
     selector: 'textarea.my-editor-cauhinh',
@@ -43,7 +45,7 @@ var editor_config_cauhinh = {
         "insertdatetime media nonbreaking save table directionality",
         "emoticons template paste textpattern"
     ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
     file_picker_callback : function(callback, value, meta) {
         var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
         var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;

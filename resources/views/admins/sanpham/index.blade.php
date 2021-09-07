@@ -23,12 +23,12 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <a href="{{route('product.create')}}" class="btn btn-primary btn-rounded font-16">Thêm sản phẩm</a>
+                    <a href="{{route('product.create')}}" class="btn btn-primary btn-rounded mb-3 font-16">Thêm sản phẩm</a>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="striped-rows-preview">
                             <div class="table-responsive-sm">
                                 <table class="table table-striped table-centered m-0 font-16" id="striped-rows-preview">
-                                    <thead>
+                                    <thead class="table-dark">
                                     <tr>
                                         <th>#</th>
                                         <th>Tên sản phẩm</th>

@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//FileManager
+Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth:admin']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
+//AdminLogin
 Route::prefix('admin')->group(function (){
     Route::get('/login',[
         'as'=>'admin.login',
@@ -28,6 +33,7 @@ Route::prefix('admin')->group(function (){
     ]);
 });
 
+//Admin
 Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
     Route::get('/',[
        'as'=>'admin.dashboard.index',

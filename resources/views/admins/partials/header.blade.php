@@ -25,7 +25,7 @@
                         $admin = \Illuminate\Support\Facades\Auth::guard('admin')->user();
                     @endphp
                     <span class="account-user-name">{{$admin->name}}</span>
-                    <span class="account-position">{{$admin->loaiTaiKhoanAdmin->name}}</span>
+                    <span class="account-position font-14">{{$admin->loaiTaiKhoanAdmin->name}}</span>
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
