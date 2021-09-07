@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function (){
 });
 
 Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
-    Route::get('/dashboard',[
+    Route::get('/',[
        'as'=>'admin.dashboard.index',
        'uses'=>'App\Http\Controllers\AdminDashboardController@index',
     ]);
@@ -37,6 +37,26 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
         Route::get('/',[
             'as' =>'categories.index',
             'uses' => 'App\Http\Controllers\AdminCategoryController@index',
+        ]);
+        Route::get('/create',[
+            'as'=>'categories.create',
+            'uses' => 'App\Http\Controllers\AdminCategoryController@create',
+        ]);
+        Route::post('/store',[
+            'as'=>'categories.store',
+            'uses' => 'App\Http\Controllers\AdminCategoryController@store',
+        ]);
+        Route::get('/edit/{id}',[
+            'as'=>'categories.edit',
+            'uses' => 'App\Http\Controllers\AdminCategoryController@edit',
+        ]);
+        Route::post('/update/{id}',[
+            'as'=>'categories.update',
+            'uses' => 'App\Http\Controllers\AdminCategoryController@update',
+        ]);
+        Route::get('/delete/{id}',[
+            'as'=>'categories.delete',
+            'uses' => 'App\Http\Controllers\AdminCategoryController@delete',
         ]);
     });
 });

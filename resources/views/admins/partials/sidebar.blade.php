@@ -1,32 +1,32 @@
 <div class="leftside-menu">
     <a href="index.html" class="logo text-center logo-light">
         <span class="logo-lg">
-            <img src="{{asset('adminv18/assets/images/logo.png')}}" alt="">
+            <img src="{{asset('resource/assets/images/logo.png')}}" alt="">
         </span>
         <span class="logo-sm">
-            <img src="{{asset('adminv18/assets/images/logo_sm.png')}}" alt="">
+            <img src="{{asset('resource/assets/images/logo_sm.png')}}" alt="">
         </span>
     </a>
     <a href="index.html" class="logo text-center logo-dark">
         <span class="logo-lg">
-            <img src="{{asset('adminv18/assets/images/logo-dark.png')}}" alt="">
+            <img src="{{asset('resource/assets/images/logo-dark.png')}}" alt="">
         </span>
         <span class="logo-sm">
-            <img src="{{asset('adminv18/assets/images/logo_sm_dark.png')}}" alt="">
+            <img src="{{asset('resource/assets/images/logo_sm_dark.png')}}" alt="">
         </span>
     </a>
     <div class="h-100" id="leftside-menu-container" data-simplebar="">
         <ul class="side-nav">
-            <li class="side-nav-title side-nav-item">Thanh công cụ</li>
+            <li class="side-nav-title side-nav-item font-12">Thanh công cụ</li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link font-18">
                     <i class="uil-home-alt"></i>
                     <span> Dashboards </span>
                 </a>
             </li>
-            <li class="side-nav-title side-nav-item">Chức năng</li>
+            <li class="side-nav-title side-nav-item font-12">Chức năng</li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link font-18">
                     <i class="uil-store"></i>
                     <span> Danh mục </span>
                     <span class="menu-arrow"></span>
@@ -34,10 +34,10 @@
                 <div class="collapse" id="sidebarEcommerce">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="{{route('categories.index')}}">Xem</a>
+                            <a href="{{route('categories.index')}}" class="font-16">Xem</a>
                         </li>
                         <li>
-                            <a href="">Thêm</a>
+                            <a href="{{route('categories.create')}}" class="font-16">Thêm</a>
                         </li>
                     </ul>
                 </div>
@@ -122,7 +122,7 @@
                     <span> Báo cáo thống kê </span>
                 </a>
             </li>
-            <li class="side-nav-title side-nav-item mt-1">Tài khoản</li>
+            <li class="side-nav-title side-nav-item mt-1 font-12">Tài khoản</li>
         </ul>
         <div class="clearfix"></div>
     </div>

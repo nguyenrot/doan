@@ -11,11 +11,11 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript: void(0);">Danh mục</a></li>
+                        <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Admin</a></li>
+                        <li class="breadcrumb-item active font-16"><a href="javascript: void(0);">Danh mục</a></li>
                     </ol>
                 </div>
-                <h4 class="page-title">Danh mục</h4>
+                <h2 class="page-title font-24">Danh mục</h2>
             </div>
         </div>
     </div>
@@ -23,13 +23,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-
-                    <a href="" class="btn btn-primary btn-rounded">Thêm danh mục</a>
-
+                    <a href="{{route('categories.create')}}" class="btn btn-primary btn-rounded font-16">Thêm danh mục</a>
                     <div class="tab-content">
                         <div class="tab-pane show active" id="striped-rows-preview">
                             <div class="table-responsive-sm">
-                                <table class="table table-striped table-centered mb-0">
+                                <table class="table table-striped table-centered mb-0 font-16">
                                     <thead>
                                     <tr>
                                         <th>#</th>
@@ -45,8 +43,8 @@
                                             <td>{{$danhmuc->name}}</td>
                                             <td>{{$danhmuc->description}}</td>
                                             <td class="table-action">
-                                                <a href="" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil"></i>Sửa</a>
-                                                <a href="javascript: void(0);" data-url="" class="btn btn-outline-dark btn-rounded action_delete"> <i class="mdi mdi-delete"></i>Xóa</a>
+                                                <a href="{{route('categories.edit',['id'=>$danhmuc->id])}}" class="btn btn-outline-dark btn-rounded"> <i class="mdi mdi-pencil"></i>Sửa</a>
+                                                <a href="javascript: void(0);" data-url="{{route('categories.delete',['id'=>$danhmuc->id])}}" class="btn btn-outline-dark btn-rounded action_delete"> <i class="mdi mdi-delete"></i>Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -54,13 +52,10 @@
                                 </table>
                             </div>
                         </div>
-
                     </div>
-
                     <div class="mt-3 text-center d-flex justify-content-center">
                         {{$danhmucs->links()}}
                     </div>
-
                 </div>
             </div>
         </div>
