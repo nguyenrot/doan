@@ -164,3 +164,11 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
         ]);
     });
 });
+
+//Web
+Route::prefix('/')->group(function (){
+    Route::get('/',[
+       'as'=>'home',
+       'uses'=>'App\Http\Controllers\HomeController@index'
+    ]);
+});
