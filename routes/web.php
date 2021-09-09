@@ -171,4 +171,11 @@ Route::prefix('/')->group(function (){
        'as'=>'home',
        'uses'=>'App\Http\Controllers\HomeController@index'
     ]);
+
+    Route::prefix('/sanpham')->group(function (){
+        Route::get('/',[
+           'as'=>'sanpham.index',
+           'uses'=>'App\Http\Controllers\SanPhamController@index'
+        ]);
+    });
 });

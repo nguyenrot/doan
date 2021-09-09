@@ -1,0 +1,21 @@
+.background_category{
+    background: #e4e4e4;
+}
+.category:hover {
+    background: #eee;
+}
+.li_nav{
+    position: relative;
+}
+.sub_nav{
+    display: none;
+    position: absolute;
+    background: white;
+    top: 47px;
+    left: 0;
+    min-width: 100%;
+    box-shadow: 0 3px 8px rgba(3 ,3, 3, .26);
+}
+.li_nav:hover .sub_nav{
+    display: block;
+}

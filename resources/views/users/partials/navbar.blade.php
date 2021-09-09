@@ -23,10 +23,10 @@
             <!-- left menu -->
             <ul class="navbar-nav me-auto align-items-center">
                 <li class="nav-item mx-lg-1">
-                    <h3><a class="nav-link active font-20" href="{{route('home')}}">Home</a></h3>
+                    <h3><a class="nav-link active home_active font-20" href="{{route('home')}}">Home</a></h3>
                 </li>
                 <li class="nav-item mx-lg-1">
-                    <h3><a class="nav-link font-20" href="">Sản phẩm</a></h3>
+                    <h3><a class="nav-link font-20 sanpham_active" href="{{route('sanpham.index')}}">Sản phẩm</a></h3>
                 </li>
 
                 <li class="nav-item mx-lg-1">
@@ -45,12 +45,12 @@
                     <h3><a class="nav-link d-none font-20" href=""></a></h3>
                 </li>
                 <li class="nav-item mx-lg-1">
-                    <a href="" target="" class="btn btn-sm btn-dark btn-rounded d-block font-18 fw-bold">
+                    <a href="" target="" class="btn btn-sm btn-dark btn-rounded d-block font-18 fw-bold ">
                         <i class="uil uil-user me-2"></i> Đăng nhập
                     </a>
                 </li>
                 <li class="nav-item mx-lg-1">
-                    <a href="" target="" class="btn btn-sm btn-dark btn-rounded d-none d-lg-inline-flex font-18 fw-bold">
+                    <a href="" target="" class="btn btn-sm btn-dark btn-rounded d-none d-lg-inline-flex  font-18 fw-bold">
                         <i class="uil uil-shopping-cart-alt me-2"></i> Giỏ hàng
                     </a>
                 </li>
