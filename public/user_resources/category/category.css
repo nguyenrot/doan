@@ -16,6 +16,9 @@
     min-width: 100%;
     box-shadow: 0 3px 8px rgba(3 ,3, 3, .26);
 }
+.sub_nav a{
+    padding: .775rem 1.5rem;
+}
 .li_nav:hover .sub_nav{
     display: block;
 }

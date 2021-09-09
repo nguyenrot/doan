@@ -13,7 +13,7 @@
                         <a href="javascript:void(0);" class="font-20 fw-bolder">Chọn danh mục <i class="uil  uil-angle-double-right"></i></a>
                     </li>
                     @foreach($danhmucs as $danhmuc)
-                        <li class="nav-link category border-start border-end li_nav dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-link category border-start border-end li_nav dropdown-toggle">
                             <a href="" class="font-20 fw-bolder">{{$danhmuc->name}}</a>
                             <div class="sub_nav rounded-3">
                                 @foreach($danhmuc->menu()->distinct()->get() as $menu)
