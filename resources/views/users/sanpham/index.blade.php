@@ -11,6 +11,7 @@
     <script src="{{asset('user_resources/category/category.js')}}"></script>
 @endsection()
 @section('content')
+
     @include('users.sanpham.partials.danhmuc')
 
     @include('users.sanpham.partials.sanpham')

@@ -4,6 +4,7 @@
 @endsection
 @section('link_css')
     <link rel="stylesheet" href="{{asset('user_resources/home/slider.css')}}">
+    <link rel="stylesheet" href="{{asset('user_resources/home/sanpham_home.css')}}">
 @endsection()
 @section('link_js')
     <script src="{{asset('user_resources/home/khuyenmai.js')}}"></script>

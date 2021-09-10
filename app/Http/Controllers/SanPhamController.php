@@ -33,4 +33,9 @@ class SanPhamController extends Controller
         $sanphams = $this->sanpham->where('active',1)->latest()->paginate(9);
         return view('users.sanpham.index',compact('sanphams'));
     }
+    public function chitiet($id){
+        $sanpham = $this->sanpham->find($id);
+//        $binhluans = $this->danhgia->where('sanpham_id',$id)->latest()->get();
+        return view('users.sanpham.chitiet',compact('sanpham'));
+    }
 }
