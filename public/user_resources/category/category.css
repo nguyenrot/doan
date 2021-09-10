@@ -1,4 +1,8 @@
 .background_category{
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    z-index: 1;
     background: #e4e4e4;
 }
 .category:hover {
@@ -21,4 +25,20 @@
 }
 .li_nav:hover .sub_nav{
     display: block;
+}
+.nav_responsive{
+    display: none;
+}
+@media screen and (max-width: 1024px){
+    .nav_responsive{
+        display: block;
+    }
+    .nav_category{
+        display: none;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .navbar_responsive{
+        display: none!important;
+    }
 }
