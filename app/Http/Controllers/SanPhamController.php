@@ -38,6 +38,10 @@ class SanPhamController extends Controller
     }
     public function chitiet($id){
         $sanpham = $this->sanpham->find($id);
+        $view = $sanpham->view;
+        $sanpham->update([
+            'view'=>$sanpham->view+1
+        ]);
         $binhluans = $this->danhgia->where('sanpham_id',$id)->latest()->get();
         return view('users.sanpham.chitiet',compact('sanpham','binhluans'));
     }
