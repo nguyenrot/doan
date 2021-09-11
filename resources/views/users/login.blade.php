@@ -1,6 +1,6 @@
 @extends('users.layouts.home')
 @section('title')
-    <title>New Shop | Sản phẩm</title>
+    <title>New Shop | Đăng nhập</title>
 @endsection
 @section('link_css')
     <link rel="stylesheet" href="{{asset('user_resources/category/category.css')}}">
@@ -25,7 +25,7 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="emailaddress" class="form-label">Địa chỉ email</label>
-                                        <input name="email" class="form-control @error('email') is-invalid @enderror" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <input name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" type="email" id="emailaddress" required="" placeholder="Enter your email">
                                     </div>
                                     @error('email')
                                     <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">

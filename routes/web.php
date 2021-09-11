@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Gửi mail
+Route::get('/email/verify', function () {
+    return view('users.vefiyemail');
+})->middleware('CheckUser')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect()->route('home');
+})->middleware(['signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['throttle:6,1'])->name('verification.send');
+
 //FileManager
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web', 'auth:admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
@@ -179,6 +196,10 @@ Route::prefix('/')->group(function (){
         'as'=>'user.register',
         'uses'=>'App\Http\Controllers\UserLoginController@register',
     ]);
+    Route::post('/register',[
+        'as'=>'user.registerPost',
+        'uses'=>'App\Http\Controllers\UserLoginController@registerPost',
+    ]);
     Route::get('/logout',[
         'as'=>'user.logout',
         'uses'=>'App\Http\Controllers\UserLoginController@logout',
@@ -186,7 +207,7 @@ Route::prefix('/')->group(function (){
 });
 
 //Web
-Route::prefix('/')->group(function (){
+Route::prefix('/')->middleware('verified')->group(function (){
     Route::get('/',[
        'as'=>'home',
        'uses'=>'App\Http\Controllers\HomeController@index'

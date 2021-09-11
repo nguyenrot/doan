@@ -3,22 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserLoginRequest;
+use App\Http\Requests\UserRegisterRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Auth\Events\Registered;
+use phpDocumentor\Reflection\Types\This;
 
 class UserLoginController extends Controller
 {
+    private $user;
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
     public function login(){
         return view('users.login');
     }
     public function loginPost(UserLoginRequest $request){
         $remember = $request->has('remember_me') ? true:false;
-        if (Auth::guard('user')->attempt([
+        if (auth()->attempt([
             'email' =>$request->email,
             'password' => $request->password,
         ],$remember)){
-            if(Auth::guard('user')->user()->loaitaikhoan!==2){
-                Auth::guard('user')->logout();
+            if(auth()->user()->loaitaikhoan!==2){
+                auth()->logout();
                 $message = "Tài khoản này là tài khoản quản trị viên";
                 return view('users.login',compact('message'));
             }
@@ -28,8 +41,36 @@ class UserLoginController extends Controller
             return view('users.login',compact('message'));
         }
     }
+    public function register(){
+        return view('users.register');
+    }
+    public function registerPost(UserRegisterRequest $request){
+        try {
+            DB::beginTransaction();
+            $user =$this->user->create([
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'password'=>Hash::make($request->password),
+                'loaitaikhoan'=>2,
+                'active'=>1,
+            ]);
+            event(new Registered($user));
+            DB::commit();
+            if(auth()->attempt([
+                'email' =>$request->email,
+                'password' => $request->password,
+            ])){
+                return redirect()->route('home');
+            };
+        } catch (\Exception $exception){
+            DB::rollBack();
+            Log::error('Message' . $exception->getMessage() . 'Line : ' . $exception->getLine());
+            $message = "Email đã tồn tại";
+            return view('users.register',compact('message'));
+        }
+    }
     public function logout(){
-        Auth::guard('user')->logout();
-        return redirect()->back();
+        auth()->logout();
+        return redirect()->route('home');
     }
 }

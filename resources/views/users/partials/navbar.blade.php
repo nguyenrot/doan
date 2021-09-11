@@ -47,7 +47,7 @@
                 <li class="nav-item mx-lg-1 navbar-user">
                     @if(\Illuminate\Support\Facades\Auth::guard('user')->check())
                         @php
-                            $user = \Illuminate\Support\Facades\Auth::guard('user')->user();
+                            $user = auth()->user();
                         @endphp
                         <a href="javascript:void(0);" target="" class="btn btn-sm btn-dark btn-rounded d-block font-18 fw-bold dropdown-toggle btn-user">
                             <i class="uil uil-user-circle me-1"></i>{{$user->name}}
