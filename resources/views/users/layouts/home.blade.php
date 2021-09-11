@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('user_resources/home/home.css')}}">
     <link rel="stylesheet" href="{{asset('user_resources/home/user.css')}}">
     <link rel="stylesheet" href="{{asset('user_resources/giohang/giohang.css')}}">
+
     @yield('link_css')
 </head>
 <body class="loading" data-layout-config='{"darkMode":false}'>
@@ -33,6 +34,7 @@
     <script src="{{asset('user_resources/home/search.js')}}"></script>
     <script src="{{asset('user_resources/home/user.js')}}"></script>
     <script src="{{asset('user_resources/giohang/giohang.js')}}"></script>
+    <script src="{{asset('vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
     @yield('link_js')
 </body>
 

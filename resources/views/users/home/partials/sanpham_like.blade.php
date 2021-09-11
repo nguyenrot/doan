@@ -13,7 +13,7 @@
         <div class="row mt-2 py-2 align-items-center">
             <div class="col-lg-5">
                 <div class="sanpham_like">
-                    <a href="">
+                    <a href="{{route('sanpham.chitiet',['id'=>$sanphamlike[0]->id])}}">
                         <img src="{{asset($sanphamlike[0]->hinhanh)}}" class="img-fluid img-thumbnail shadow-lg rounded-circle w-75 float-end" alt="">
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                     {!! $sanphamlike[0]->cauhinh !!}
                 </div>
 
-                <a href="" class="btn btn-primary btn-rounded mt-3 font-20">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
+                <a href="{{route('sanpham.chitiet',['id'=>$sanphamlike[0]->id])}}" class="btn btn-primary btn-rounded mt-3 font-20">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
 
             </div>
         </div>
@@ -43,12 +43,12 @@
                         {!! $sanphamlike[1]->cauhinh !!}
                     </div>
 
-                    <a href="" class="btn btn-success btn-rounded mt-3 font-20">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
+                    <a href="{{route('sanpham.chitiet',['id'=>$sanphamlike[1]->id])}}" class="btn btn-success btn-rounded mt-3 font-20">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
                 </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
                 <div class="sanpham_like">
-                    <a href="">
+                    <a href="{{route('sanpham.chitiet',['id'=>$sanphamlike[1]->id])}}">
                         <img src="{{asset($sanphamlike[1]->hinhanh)}}" class="img-fluid img-thumbnail rounded w-75 shadow-lg" alt="">
                     </a>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\chitietkhuyenmai;
+use App\Models\danhgia;
 use App\Models\danhmuc;
 use App\Models\hangsanxuat;
 use App\Models\khuyenmai;
@@ -19,14 +20,16 @@ class SanPhamController extends Controller
     private $hangsanxuat;
     private $chitietkhuyenmai;
     private $khuyenmai;
+    private $danhgia;
     public function __construct(sanpham $sanpham,danhmuc $danhmuc,hangsanxuat $hangsanxuat,
-        chitietkhuyenmai $chitietkhuyenmai,khuyenmai $khuyenmai)
+        chitietkhuyenmai $chitietkhuyenmai,khuyenmai $khuyenmai,danhgia $danhgia)
     {
         $this->sanpham = $sanpham;
         $this->danhmuc = $danhmuc;
         $this->hangsanxuat = $hangsanxuat;
         $this->chitietkhuyenmai = $chitietkhuyenmai;
         $this->khuyenmai = $khuyenmai;
+        $this->danhgia = $danhgia;
     }
     public function index(){
         Paginator::useBootstrap();
@@ -35,7 +38,7 @@ class SanPhamController extends Controller
     }
     public function chitiet($id){
         $sanpham = $this->sanpham->find($id);
-//        $binhluans = $this->danhgia->where('sanpham_id',$id)->latest()->get();
-        return view('users.sanpham.chitiet',compact('sanpham'));
+        $binhluans = $this->danhgia->where('sanpham_id',$id)->latest()->get();
+        return view('users.sanpham.chitiet',compact('sanpham','binhluans'));
     }
 }

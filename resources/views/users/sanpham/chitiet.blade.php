@@ -129,7 +129,7 @@
                                         <div data-simplebar style="max-height: 600px;">
                                             <div id="company-list-left" class="py-2">
 
-{{--                                                @include('user.sanpham.partials.binhluan')--}}
+                                                @include('users.sanpham.partials.binhluan')
 
                                             </div>
                                         </div>
@@ -142,10 +142,10 @@
                                         <div id="company-list-left" class="py-2">
                                             @if(auth()->check())
                                                 <div class="danhgia-partials">
-{{--                                                    @include('user.sanpham.partials.danhgia')--}}
+                                                    @include('users.sanpham.partials.danhgia')
                                                 </div>
                                             @else
-                                                <a href="" class="btn btn-danger ms-2">Đăng nhập để bình luận</a>
+                                                <a href="{{route('user.login')}}" class="btn btn-danger ms-2">Đăng nhập để bình luận</a>
                                             @endif
                                         </div>
                                     </div>

@@ -30,11 +30,11 @@
                             <span class="text-dark font-13">/ {{number_format(doubleval($spkm->product->dongia))}} VNĐ</span></h3>
 
                         <div class="">
-                            <a href="" class="btn btn-primary mb-1 mt-2 btn-rounded font-18">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
+                            <a href="{{route('sanpham.chitiet',['id'=>$spkm->product->id])}}" class="btn btn-primary mb-1 mt-2 btn-rounded font-18">Xem ngay<i class="mdi mdi-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                     <div class="sanpham_discount_hover w-100 d-flex align-items-center justify-content-center">
-                        <a href="">
+                        <a href="{{route('sanpham.chitiet',['id'=>$spkm->product->id])}}">
                             <h5 class="cauhinh">
                                 {!! $spkm->product->cauhinh !!}
                             </h5>

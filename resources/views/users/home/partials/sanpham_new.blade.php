@@ -19,7 +19,7 @@
                         <div class="demo-box text-center">
                             <img src="{{asset($sanpham->hinhanh)}}" alt="demo-img" class="img-fluid shadow-lg rounded-circle card-img-top w-75 mt-3">
                             <div class="card-body">
-                                <a href="" class="btn btn-outline-primary rounded-pill fw-bold font-20 w-100">
+                                <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}" class="btn btn-outline-primary rounded-pill fw-bold font-20 w-100">
                                     <div class="row">
                                         <div class="col-12 text-truncate">
                                             {{$sanpham->tensp}}
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class=" w-100 sanpham_new_hover">
-                            <a href="">
+                            <a href="{{route('sanpham.chitiet',['id'=>$sanpham->id])}}">
                                 <div class="h-100 d-flex align-items-center justify-content-center">
                                     <div class="alert alert-dark text-dark d-flex align-items-center" role="alert">
                                         <h5 class="card-text text-danger fw-bold font-24 text-center  m-0">{{number_format($sanpham->dongia)}} VNĐ</h5>

@@ -223,4 +223,15 @@ Route::prefix('/')->middleware('verified')->group(function (){
            'uses'=>'App\Http\Controllers\SanPhamController@chitiet'
         ]);
     });
+
+    Route::prefix('binhluan')->group(function (){
+        Route::post('/',[
+            'as'=>'binhluan.add',
+            'uses'=>'App\Http\Controllers\BinhLuanController@add',
+        ]);
+        Route::get('/delete',[
+            'as'=>'binhluan.delete',
+            'uses'=>'App\Http\Controllers\BinhLuanController@delete',
+        ]);
+    });
 });

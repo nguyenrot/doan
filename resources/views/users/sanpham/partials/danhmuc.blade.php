@@ -34,9 +34,9 @@
     <div class="navbar_responsive d-none">
         <div class="">
             @foreach($danhmucs as $danhmuc)
-                    <a class="dropdown-item font-18 fw-bold text-primary " href="#">{{$danhmuc->name}}</a>
+                    <a class="dropdown-item font-18 fw-bold text-primary " href="#"><i class="mdi mdi-menu-right-outline font-18"></i>{{$danhmuc->name}}</a>
             @foreach($danhmuc->menu()->distinct()->get() as $menu)
-                    <a class="dropdown-item font-18 fw-bold text-primary " href="#"> <i class="mdi mdi-menu-right-outline"></i>{{$menu->name}}</a>
+                    <a class="dropdown-item font-18 fw-bold text-primary " href="#">{{$menu->name}}</a>
                 @endforeach
             @endforeach
         </div>
