@@ -45,7 +45,7 @@
             @endforeach
         </div>
         <div class="row justify-content-center">
-            <a href="" class="btn rounded-pill fw-bold fw-bolder btn-outline-primary font-20 w-75">Xem thêm sản phẩm khuyến mãi<i class="mdi mdi-arrow-right ms-1"></i></a>
+            <a href="{{route('sanpham.khuyenmai')}}" class="btn rounded-pill fw-bold fw-bolder btn-outline-primary font-20 w-75">Xem thêm sản phẩm khuyến mãi<i class="mdi mdi-arrow-right ms-1"></i></a>
         </div>
     </div>
 </section>

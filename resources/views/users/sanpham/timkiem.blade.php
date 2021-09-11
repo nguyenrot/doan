@@ -1,6 +1,6 @@
 @extends('users.layouts.home')
 @section('title')
-    <title>New Shop | Sản phẩm</title>
+    <title>New Shop | Sản phẩm Danh mục</title>
 @endsection
 @section('link_css')
     <link rel="stylesheet" href="{{asset('user_resources/category/category.css')}}">
@@ -13,7 +13,17 @@
 @section('content')
 
     @include('users.sanpham.partials.danhmuc')
-
-    @include('users.sanpham.partials.sanpham',['name'=>'Tất cả sản phẩm'])
-
+    @if($sanphams->count()==0)
+        <section style="min-height: 400px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="mb-3 mt-4">Không tìm có kết quả {{$search}}</h2>
+                    </div> <!-- end col -->
+                </div>
+            </div>
+        </section>
+    @else
+        @include('users.sanpham.partials.sanpham',['name'=>$search])
+    @endif
 @endsection()

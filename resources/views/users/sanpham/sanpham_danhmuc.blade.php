@@ -1,6 +1,6 @@
 @extends('users.layouts.home')
 @section('title')
-    <title>New Shop | Sản phẩm</title>
+    <title>New Shop | Sản phẩm Danh mục</title>
 @endsection
 @section('link_css')
     <link rel="stylesheet" href="{{asset('user_resources/category/category.css')}}">
@@ -14,6 +14,6 @@
 
     @include('users.sanpham.partials.danhmuc')
 
-    @include('users.sanpham.partials.sanpham',['name'=>'Tất cả sản phẩm'])
+    @include('users.sanpham.partials.sanpham',['name'=>$danhmuc])
 
 @endsection()

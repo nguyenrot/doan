@@ -55,8 +55,8 @@
                                     </p>
 
                                     <div class="mt-3 d-flex d-flex justify-content-start">
-                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="" class="text-success">{{$sanpham->category->name}}</a></span></h3>
-                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="{{route('sanpham.danhmuc',['id'=>$sanpham->category->id])}}" class="text-success">{{$sanpham->category->name}}</a></span></h3>
+                                        <h3 class="tag"><span class="badge badge-success-lighten"><a href="{{route('sanpham.hangsanxuat',['danhmuc'=>$sanpham->category->id,'id'=>$sanpham->menu->id])}}" class="text-success">{{$sanpham->menu->name}}</a></span></h3>
                                     </div>
 
                                     @if($sanpham->khuyenmai()->where('active',1)->count()==0)

@@ -38,7 +38,7 @@
                                 @endswitch
                             </span>
                         </div>
-                        <a href="" class="stretched-link"><h3 class="mt-3">{{$danhmuc->name}}</h3></a>
+                        <a href="{{route('sanpham.danhmuc',['id'=>$danhmuc->id])}}" class="stretched-link"><h3 class="mt-3">{{$danhmuc->name}}</h3></a>
                         <p class="text-muted mt-2 mb-0 font-16 fw-bold">{{$danhmuc->description}}</p>
                     </div>
                 </div>

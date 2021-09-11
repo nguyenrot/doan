@@ -222,6 +222,22 @@ Route::prefix('/')->middleware('verified')->group(function (){
            'as'=>'sanpham.chitiet',
            'uses'=>'App\Http\Controllers\SanPhamController@chitiet'
         ]);
+        Route::get('/danhmuc/{id}',[
+           'as'=>'sanpham.danhmuc',
+           'uses'=>'App\Http\Controllers\SanPhamController@danhmuc'
+        ]);
+        Route::get('/{danhmuc}/{id}',[
+           'as'=>'sanpham.hangsanxuat',
+            'uses'=>'App\Http\Controllers\SanPhamController@hangsanxuat'
+        ]);
+        Route::get('/khuyenmai',[
+           'as'=>'sanpham.khuyenmai',
+           'uses'=>'App\Http\Controllers\SanPhamController@khuyenmai'
+        ]);
+        Route::get('/timkiem',[
+            'as' => 'sanpham.timkiem',
+            'uses' => 'App\Http\Controllers\SanPhamController@timkiem'
+        ]);
     });
 
     Route::prefix('binhluan')->group(function (){

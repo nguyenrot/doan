@@ -30,7 +30,7 @@
                 </li>
 
                 <li class="nav-item mx-lg-1">
-                    <form action="" method="get">
+                    <form action="{{route('sanpham.timkiem')}}" method="get">
                         <div class="search_navbar d-flex justify-content-center" id="hvbtn">
                             <h4><input name="searchsp" type="text" class="input_search text-primary" placeholder="Tìm kiếm" autocomplete="off"></h4>
                             <button type="submit" class="btn_search"><i class="uil uil-search"></i></button>
