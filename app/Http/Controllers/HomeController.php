@@ -24,9 +24,6 @@ class HomeController extends Controller
     }
 
     public function index(){
-        if(auth()->check() && auth()->user()->loaitk !== 2){
-            return redirect()->route('dangxuat');
-        }
         $danhmucs = $this->danhmuc->get();
         $sanphamnew = $this->sanpham->latest()->take(6)->get();
         $sanphamlike = $this->sanpham->latest('view','desc')->take(2)->get();

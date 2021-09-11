@@ -22,7 +22,7 @@ Route::prefix('admin')->group(function (){
     Route::get('/login',[
         'as'=>'admin.login',
         'uses'=>'App\Http\Controllers\AdminLoginController@login',
-    ]);
+    ])->middleware('Admin');
     Route::post('/login',[
         'as'=>'admin.loginPost',
         'uses'=>'App\Http\Controllers\AdminLoginController@loginPost',
@@ -163,6 +163,26 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@active_product',
         ]);
     });
+});
+
+//UserLogin
+Route::prefix('/')->group(function (){
+    Route::get('/login',[
+        'as'=>'user.login',
+        'uses'=>'App\Http\Controllers\UserLoginController@login',
+    ]);
+    Route::post('/login',[
+        'as'=>'user.loginPost',
+        'uses'=>'App\Http\Controllers\UserLoginController@loginPost',
+    ]);
+    Route::get('/register',[
+        'as'=>'user.register',
+        'uses'=>'App\Http\Controllers\UserLoginController@register',
+    ]);
+    Route::get('/logout',[
+        'as'=>'user.logout',
+        'uses'=>'App\Http\Controllers\UserLoginController@logout',
+    ]);
 });
 
 //Web

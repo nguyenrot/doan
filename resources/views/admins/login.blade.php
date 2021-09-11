@@ -44,8 +44,8 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group input-group-merge">
-                                    <input name="password" type="password" id="password" class="form-control" placeholder="Nhập password">
-                                    <div class="input-group-text @error('password') is-invalid @enderror" data-password="false">
+                                    <input name="password" type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Nhập password">
+                                    <div class="input-group-text" data-password="false">
                                         <span class="password-eye"></span>
                                     </div>
                                 </div>

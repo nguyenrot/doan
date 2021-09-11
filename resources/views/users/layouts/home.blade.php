@@ -7,14 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="Coderthemes" name="author">
-    <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('resource/assets/images/logo_sm.png')}}">
-
-    <!-- App css -->
     <link href="{{asset('resource/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('resource/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style">
     <link href="{{asset('resource/assets/css/app-dark.min.css')}}" rel="stylesheet" type="text/css" id="dark-style">
     <link rel="stylesheet" href="{{asset('user_resources/home/home.css')}}">
+    <link rel="stylesheet" href="{{asset('user_resources/home/user.css')}}">
     <link rel="stylesheet" href="{{asset('user_resources/giohang/giohang.css')}}">
     @yield('link_css')
 </head>
@@ -33,6 +31,7 @@
     <script src="{{asset('resource/assets/js/vendor.min.js')}}"></script>
     <script src="{{asset('resource/assets/js/app.min.js')}}"></script>
     <script src="{{asset('user_resources/home/search.js')}}"></script>
+    <script src="{{asset('user_resources/home/user.js')}}"></script>
     <script src="{{asset('user_resources/giohang/giohang.js')}}"></script>
     @yield('link_js')
 </body>
