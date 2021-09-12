@@ -77,8 +77,6 @@ function deleteCart(e){
                 success:function (data){
                     if(data.code===200) {
                         $('.cart_wrapper').html(data.cartPartials)
-                        $('.soluong').text(data.soluongCart)
-                        $('.subcart').html(data.subCartPartials)
                         Swal.fire(
                             'Đã xóa!',
                             'Sản phẩm này đã được xóa!',
