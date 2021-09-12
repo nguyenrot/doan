@@ -240,6 +240,25 @@ Route::prefix('/')->middleware('verified')->group(function (){
         ]);
     });
 
+    Route::prefix('giohang')->group(function (){
+        Route::get('/',[
+            'as'=>'giohang.index',
+            'uses'=> 'App\Http\Controllers\GioHangController@index'
+        ]);
+        Route::get('/add-cart/{id}',[
+            'as'=>'giohang.add',
+            'uses'=> 'App\Http\Controllers\GioHangController@addCart'
+        ]);
+        Route::get('/update-cart',[
+            'as'=>'giohang.update',
+            'uses'=> 'App\Http\Controllers\GioHangController@update'
+        ]);
+        Route::get('/delete-cart',[
+            'as'=>'giohang.delete',
+            'uses'=> 'App\Http\Controllers\GioHangController@delete'
+        ]);
+    });
+
     Route::prefix('binhluan')->group(function (){
         Route::post('/',[
             'as'=>'binhluan.add',

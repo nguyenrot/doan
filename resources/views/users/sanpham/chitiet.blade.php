@@ -10,6 +10,7 @@
     <script src="{{asset('user_resources/category/category.js')}}"></script>
     <script src="{{asset('user_resources/sanpham/chitiet/chitiet.js')}}"></script>
     <script src="{{asset('user_resources/sanpham/chitiet/binhluan.js')}}"></script>
+    <script src="{{asset('user_resources/giohang/cart.js')}}"></script>
 @endsection()
 @section('content')
 
@@ -77,7 +78,7 @@
                                         <h6 class="font-20"><i class="mdi mdi-star-outline text-danger"></i> Số lượng:</h6>
                                         <div class="d-flex">
                                             <input type="number" min="1" value="1" class="form-control soluong-sp" placeholder="Qty" style="width: 90px;">
-                                            <button type="button" data-url="" class="btn btn-danger ms-2 btn-add-cart"><i class="mdi mdi-cart me-1"></i>Thêm vào giỏ hàng</button>
+                                            <button type="button" data-url="{{route('giohang.add',['id'=>$sanpham->id])}}" class="btn btn-danger ms-2 btn-add-cart"><i class="mdi mdi-cart me-1"></i>Thêm vào giỏ hàng</button>
                                         </div>
                                     </div>
 

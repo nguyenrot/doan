@@ -9,6 +9,7 @@
 @section('link_js')
     <script src="{{asset('user_resources/sanpham/sanpham.js')}}"></script>
     <script src="{{asset('user_resources/category/category.js')}}"></script>
+    <script src="{{asset('user_resources/giohang/cart.js')}}"></script>
 @endsection()
 @section('content')
 
@@ -45,7 +46,7 @@
                                 </a>
                                 <div class="d-flex justify-content-around">
                                     <a href="{{route('sanpham.chitiet',['id'=>$sanpham->product->id])}}" class="btn btn-primary" ><i class="mdi mdi-eye-outline"></i> Xem chi tiết</a>
-                                    <a href="" data-url="" class="btn btn-primary btn-add-cart" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
+                                    <a href="" data-url="{{route('giohang.add',['id'=>$sanpham->id])}}" class="btn btn-primary btn-add-cart" target="_blank"><i class="mdi mdi-cart me-1"></i> Thêm vào giỏ hàng</a>
                                 </div>
                             </div>
                         </div>

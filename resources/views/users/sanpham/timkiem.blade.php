@@ -9,6 +9,7 @@
 @section('link_js')
     <script src="{{asset('user_resources/sanpham/sanpham.js')}}"></script>
     <script src="{{asset('user_resources/category/category.js')}}"></script>
+    <script src="{{asset('user_resources/giohang/cart.js')}}"></script>
 @endsection()
 @section('content')
 
