@@ -32,7 +32,7 @@
                             <h1 class="text-error">4<i class="mdi mdi-emoticon-sad"></i>4</h1>
                             <h4 class="text-uppercase text-danger mt-3">Không tìm thấy trang</h4>
                             <p class="text-muted mt-3 font-16">Có vẻ như bạn đã nhầm lẫn đường dẫn. Hãy trở lại trang chủ.</p>
-                            <a class="btn btn-info mt-3" href="#"><i class="mdi mdi-reply"></i> Về trang chủ</a>
+                            <a class="btn btn-info mt-3" href="{{route('home')}}"><i class="mdi mdi-reply"></i> Về trang chủ</a>
                         </div>
                     </div>
                 </div>

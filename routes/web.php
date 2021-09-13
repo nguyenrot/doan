@@ -187,18 +187,22 @@ Route::prefix('/')->group(function (){
     Route::get('/login',[
         'as'=>'user.login',
         'uses'=>'App\Http\Controllers\UserLoginController@login',
+        'middleware'=>'CheckUser'
     ]);
     Route::post('/login',[
         'as'=>'user.loginPost',
         'uses'=>'App\Http\Controllers\UserLoginController@loginPost',
+        'middleware'=>'CheckUser'
     ]);
     Route::get('/register',[
         'as'=>'user.register',
         'uses'=>'App\Http\Controllers\UserLoginController@register',
+        'middleware'=>'CheckUser'
     ]);
     Route::post('/register',[
         'as'=>'user.registerPost',
         'uses'=>'App\Http\Controllers\UserLoginController@registerPost',
+        'middleware'=>'CheckUser'
     ]);
     Route::get('/logout',[
         'as'=>'user.logout',
@@ -222,6 +226,7 @@ Route::prefix('/')->middleware('verified')->group(function (){
            'as'=>'sanpham.chitiet',
            'uses'=>'App\Http\Controllers\SanPhamController@chitiet'
         ]);
+
         Route::get('/danhmuc/{id}',[
            'as'=>'sanpham.danhmuc',
            'uses'=>'App\Http\Controllers\SanPhamController@danhmuc'
@@ -237,6 +242,17 @@ Route::prefix('/')->middleware('verified')->group(function (){
         Route::get('/timkiem',[
             'as' => 'sanpham.timkiem',
             'uses' => 'App\Http\Controllers\SanPhamController@timkiem'
+        ]);
+    });
+
+    Route::prefix('binhluan')->group(function (){
+        Route::post('/',[
+            'as'=>'binhluan.add',
+            'uses'=>'App\Http\Controllers\BinhLuanController@add',
+        ]);
+        Route::get('/delete',[
+            'as'=>'binhluan.delete',
+            'uses'=>'App\Http\Controllers\BinhLuanController@delete',
         ]);
     });
 
@@ -259,14 +275,33 @@ Route::prefix('/')->middleware('verified')->group(function (){
         ]);
     });
 
-    Route::prefix('binhluan')->group(function (){
-        Route::post('/',[
-            'as'=>'binhluan.add',
-            'uses'=>'App\Http\Controllers\BinhLuanController@add',
+    Route::prefix('dathang')->middleware('CheckDathang')->group(function (){
+        Route::get('/',[
+            'as'=>'dathang',
+            'uses'=>'App\Http\Controllers\DatHangController@dathang',
         ]);
-        Route::get('/delete',[
-            'as'=>'binhluan.delete',
-            'uses'=>'App\Http\Controllers\BinhLuanController@delete',
+        Route::post('/',[
+            'as'=>'dathangpost',
+            'uses'=>'App\Http\Controllers\DatHangController@dathangpost',
+        ]);
+    });
+
+    Route::prefix('donhang')->group(function (){
+        Route::get('/',[
+            'as'=>'quanlydonhang',
+            'uses'=>'App\Http\Controllers\DonHangController@index',
+        ]);
+        Route::get('/choduyet',[
+            'as'=>'quanlydonhang.choduyet',
+            'uses'=>'App\Http\Controllers\DonHangController@choduyet',
+        ]);
+        Route::get('/danggiao',[
+            'as'=>'quanlydonhang.danggiao',
+            'uses'=>'App\Http\Controllers\DonHangController@danggiao',
+        ]);
+        Route::get('/dagiao',[
+            'as'=>'quanlydonhang.dagiao',
+            'uses'=>'App\Http\Controllers\DonHangController@dagiao',
         ]);
     });
 });

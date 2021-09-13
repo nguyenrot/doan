@@ -67,7 +67,7 @@
                     @endif
                 </li>
                 <li class="nav-item mx-lg-1">
-                    <a href="" target="" class="btn btn-sm btn-dark btn-rounded d-none d-lg-inline-flex  font-18 fw-bold">
+                    <a href="{{route('giohang.index')}}" target="" class="btn btn-sm btn-dark btn-rounded d-none d-lg-inline-flex  font-18 fw-bold">
                         <i class="uil uil-shopping-cart-alt me-2"></i> Giỏ hàng
                     </a>
                 </li>
