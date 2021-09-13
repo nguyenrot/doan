@@ -3,13 +3,14 @@
     <title>New Shop | Đặt hàng</title>
 @endsection
 @section('link_css')
-
+    <link rel="stylesheet" href="{{asset('user_resources/category/category.css')}}">
 @endsection()
 @section('link_js')
     <script src="{{asset('user_resources/dathang/dathang.js')}}"></script>
+    <script src="{{asset('user_resources/category/category.js')}}"></script>
 @endsection()
 @section('content')
-
+    @include('users.sanpham.partials.danhmuc')
     <section>
         <div class="container">
             <div class="row">

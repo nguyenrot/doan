@@ -187,22 +187,22 @@ Route::prefix('/')->group(function (){
     Route::get('/login',[
         'as'=>'user.login',
         'uses'=>'App\Http\Controllers\UserLoginController@login',
-        'middleware'=>'CheckUser'
+        'middleware'=>'CheckLogin'
     ]);
     Route::post('/login',[
         'as'=>'user.loginPost',
         'uses'=>'App\Http\Controllers\UserLoginController@loginPost',
-        'middleware'=>'CheckUser'
+        'middleware'=>'CheckLogin'
     ]);
     Route::get('/register',[
         'as'=>'user.register',
         'uses'=>'App\Http\Controllers\UserLoginController@register',
-        'middleware'=>'CheckUser'
+        'middleware'=>'CheckLogin'
     ]);
     Route::post('/register',[
         'as'=>'user.registerPost',
         'uses'=>'App\Http\Controllers\UserLoginController@registerPost',
-        'middleware'=>'CheckUser'
+        'middleware'=>'CheckLogin'
     ]);
     Route::get('/logout',[
         'as'=>'user.logout',
@@ -286,22 +286,18 @@ Route::prefix('/')->middleware('verified')->group(function (){
         ]);
     });
 
-    Route::prefix('donhang')->group(function (){
+    Route::prefix('donhang')->middleware('CheckDathang')->group(function (){
         Route::get('/',[
-            'as'=>'quanlydonhang',
+            'as'=>'donhang.index',
             'uses'=>'App\Http\Controllers\DonHangController@index',
         ]);
-        Route::get('/choduyet',[
-            'as'=>'quanlydonhang.choduyet',
-            'uses'=>'App\Http\Controllers\DonHangController@choduyet',
+        Route::get('/{id}',[
+            'as'=>'donhang.view',
+            'uses'=>'App\Http\Controllers\DonHangController@view',
         ]);
-        Route::get('/danggiao',[
-            'as'=>'quanlydonhang.danggiao',
-            'uses'=>'App\Http\Controllers\DonHangController@danggiao',
-        ]);
-        Route::get('/dagiao',[
-            'as'=>'quanlydonhang.dagiao',
-            'uses'=>'App\Http\Controllers\DonHangController@dagiao',
+        Route::get('/delete/{id}',[
+            'as'=>'donhang.delete',
+            'uses'=>'App\Http\Controllers\DonHangController@delete',
         ]);
     });
 });
