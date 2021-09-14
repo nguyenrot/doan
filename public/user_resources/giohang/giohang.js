@@ -9,8 +9,8 @@ function deleteSubCart(e){
         success:function (data){
             if(data.code===200){
                 $('.cart_wrapper').html(data.cartPartials)
-                $('.subcart').html(data.subCartPartials);
-                $('.soluong').text(data.soluongCart);
+                $('.cart_sub_partials').html(data.sub_carts);
+                $('.soluong-cart').text(data.total_sp)
             }
         },
         error:function (){

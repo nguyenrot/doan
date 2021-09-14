@@ -66,10 +66,19 @@
                         </a>
                     @endif
                 </li>
-                <li class="nav-item mx-lg-1">
+                <li class="nav-item mx-lg-1 navbar-cart">
                     <a href="{{route('giohang.index')}}" target="" class="btn btn-sm btn-dark btn-rounded d-none d-lg-inline-flex  font-18 fw-bold">
-                        <i class="uil uil-shopping-cart-alt me-2"></i> Giỏ hàng
+                        <i class="uil uil-shopping-cart-alt me-2"></i> Giỏ hàng &nbsp;
+                        <span class="badge badge-outline-light border-1 rounded-circle float-end font-18 soluong-cart">{{$totalSoluong}}</span>
                     </a>
+                    <div class="sub_cart rounded-3">
+                        <div class="sub_user_header dropdown-header noti-title">
+                            <h6 class="m-0 font-16 pt- text-primary">Giỏ hàng !</h6>
+                        </div>
+                        <div class="cart_sub_partials">
+                            @include('users.partials.sub_cart_partials')
+                        </div>
+                    </div>
                 </li>
             </ul>
 

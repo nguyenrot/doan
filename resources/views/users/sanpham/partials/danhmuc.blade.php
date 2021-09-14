@@ -8,11 +8,16 @@
     <div class="container ">
         <div class="row">
             <nav>
-                <ul class="nav nav_responsive">
-                    <li>
-                        <button type="button" class="btn btn-outline-primary font-18 fw-bold p-2 btn_category"><i class="mdi mdi-menu"></i> Chọn danh mục</button>
-                    </li>
-                </ul>
+                <div class="nav_responsive">
+                    <ul class="nav d-flex justify-content-between">
+                        <li class="nav-link">
+                            <button type="button" class=" btn btn-outline-primary font-18 fw-bold p-2 btn_category"><i class="mdi mdi-menu"></i> Chọn danh mục</button>
+                        </li>
+                        <li class="nav-link">
+                            <a href="{{route('giohang.index')}}" class=" btn btn-outline-primary font-18 fw-bold p-2 "><i class="mdi mdi-menu"></i>Giỏ hàng</a>
+                        </li>
+                    </ul>
+                </div>
                 <ul class="nav nav_category">
                     <li class="nav-link">
                         <a href="javascript:void(0);" class="font-20 fw-bolder">Chọn danh mục <i class="uil  uil-angle-double-right"></i></a>

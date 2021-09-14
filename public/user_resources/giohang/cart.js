@@ -24,6 +24,8 @@ function addToCart(e){
         dataType: 'json',
         success:function (data){
             if(data.code===200){
+                $('.cart_sub_partials').html(data.sub_carts);
+                $('.soluong-cart').text(data.total_sp)
             }
         },
         error:function (){
@@ -43,6 +45,8 @@ function updateCart(e){
         success: function (data){
             if(data.code===200){
                 $('.cart_wrapper').html(data.cartPartials)
+                $('.cart_sub_partials').html(data.sub_carts);
+                $('.soluong-cart').text(data.total_sp)
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -77,6 +81,8 @@ function deleteCart(e){
                 success:function (data){
                     if(data.code===200) {
                         $('.cart_wrapper').html(data.cartPartials)
+                        $('.cart_sub_partials').html(data.sub_carts);
+                        $('.soluong-cart').text(data.total_sp)
                         Swal.fire(
                             'Đã xóa!',
                             'Sản phẩm này đã được xóa!',

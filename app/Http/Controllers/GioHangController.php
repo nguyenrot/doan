@@ -32,8 +32,17 @@ class GioHangController extends Controller
         }
         session()->put('cart',$cart);
         $carts = session()->get('cart');
+        $sub_carts = view('users.partials.sub_cart_partials',compact('carts'))->render();
+        $totalSoluong = 0;
+        if(isset($carts)){
+            foreach ($carts as $cartItem){
+                $totalSoluong += $cartItem['soluong'];
+            }
+        }
         return response()->json([
             'code'=>200,
+            'sub_carts'=>$sub_carts,
+            'total_sp'=>$totalSoluong,
             'message'=>'success',
         ],200);
     }
@@ -43,13 +52,17 @@ class GioHangController extends Controller
         session()->put('cart',$carts);
         $carts = session()->get('cart');
         $cartPartials = view('users.giohang.partials.cart',compact('carts'))->render();
-        $tongsoluong = 0;
-        foreach ($carts as $cartItem) {
-            $tongsoluong+=$cartItem['soluong'];
+        $sub_carts = view('users.partials.sub_cart_partials',compact('carts'))->render();
+        $totalSoluong = 0;
+        if(isset($carts)){
+            foreach ($carts as $cartItem){
+                $totalSoluong += $cartItem['soluong'];
+            }
         }
         return response()->json([
             'cartPartials'=>$cartPartials,
-            'soluongCart'=>$tongsoluong,
+            'sub_carts'=>$sub_carts,
+            'total_sp'=>$totalSoluong,
             'code'=>200,
         ],200);
     }
@@ -63,13 +76,17 @@ class GioHangController extends Controller
         session()->put('cart',$carts);
         $carts = session()->get('cart');
         $cartPartials = view('users.giohang.partials.cart',compact('carts'))->render();
-        $tongsoluong = 0;
-        foreach ($carts as $cartItem) {
-            $tongsoluong+=$cartItem['soluong'];
+        $sub_carts = view('users.partials.sub_cart_partials',compact('carts'))->render();
+        $totalSoluong = 0;
+        if(isset($carts)){
+            foreach ($carts as $cartItem){
+                $totalSoluong += $cartItem['soluong'];
+            }
         }
         return response()->json([
             'cartPartials'=>$cartPartials,
-            'soluongCart'=>$tongsoluong,
+            'sub_carts'=>$sub_carts,
+            'total_sp'=>$totalSoluong,
             'code'=>200,
         ],200);
     }

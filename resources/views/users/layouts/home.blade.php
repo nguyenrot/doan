@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('user_resources/home/home.css')}}">
     <link rel="stylesheet" href="{{asset('user_resources/home/user.css')}}">
     <link rel="stylesheet" href="{{asset('user_resources/giohang/giohang.css')}}">
+    <link rel="stylesheet" href="{{asset('user_resources/giohang/sub_cart.css')}}">
 
     @yield('link_css')
 </head>
