@@ -44,7 +44,7 @@ class DatHangController extends Controller
                 return redirect()->route('giohang.index');
             }
             DB::beginTransaction();
-            $diachi = $request->diachi . ", ".$request->phuong . ", ".$request->quan. ", ".$request->thanhpho. ", ";
+            $diachi = $request->diachi . ", ".$request->phuong . ", ".$request->quan. ", ".$request->thanhpho;
             $donang = $this->donhang->create([
                 'diachi'=>$diachi,
                 'user_id'=>auth()->user()->id,

@@ -34,7 +34,7 @@
                                             }
                                             if ($donhang->active ==2 ){
                                                 $key = 2;
-                                                $trangthai = '<span class="text-primary">Đang giao</span>';
+                                                $trangthai = '<span class="text-warning">Đang giao</span>';
                                             }
                                             if ($donhang->active ==3 ){
                                                 $key = 3;

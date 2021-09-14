@@ -180,6 +180,41 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses'=> 'App\Http\Controllers\AdminKhuyenMaiController@active_product',
         ]);
     });
+
+    Route::prefix('/donhang')->group(function (){
+        Route::get('/choduyet/',[
+           'as'=>'admindonhang.choduyet',
+           'uses'=>'App\Http\Controllers\AdminDonHangController@choduyet'
+        ]);
+        Route::get('/danggiao/',[
+            'as'=>'admindonhang.danggiao',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@danggiao'
+        ]);
+        Route::get('/dagiao/',[
+            'as'=>'admindonhang.dagiao',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@dagiao'
+        ]);
+        Route::get('/huy/',[
+            'as'=>'admindonhang.huy',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@huy'
+        ]);
+        Route::get('/view/{id}',[
+           'as'=>'admindonhang.view',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@view'
+        ]);
+        Route::get('/huydon/',[
+            'as'=>'admindonhang.huydon',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@huydon'
+        ]);
+        Route::get('/duyetdon/',[
+            'as'=>'admindonhang.duyetdon',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@duyetdon'
+        ]);
+        Route::get('/xacnhandon/',[
+            'as'=>'admindonhang.xacnhandon',
+            'uses'=>'App\Http\Controllers\AdminDonHangController@xacnhandon'
+        ]);
+    });
 });
 
 //UserLogin

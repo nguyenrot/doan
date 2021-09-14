@@ -26,7 +26,7 @@
             </li>
             <li class="side-nav-title side-nav-item font-12">Chức năng</li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarDanhMuc" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link font-18">
+                <a data-bs-toggle="collapse" href="#sidebarDanhMuc" aria-expanded="false" aria-controls="sidebarDanhMuc" class="side-nav-link font-18">
                     <i class="uil-store"></i>
                     <span> Danh mục </span>
                     <span class="menu-arrow"></span>
@@ -43,7 +43,7 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarMenu" aria-expanded="false" aria-controls="sidebarEmail" class="side-nav-link font-18">
+                <a data-bs-toggle="collapse" href="#sidebarMenu" aria-expanded="false" aria-controls="sidebarMenu" class="side-nav-link font-18">
                     <i class="uil-envelope"></i>
                     <span> Hãng phụ kiện </span>
                     <span class="menu-arrow"></span>
@@ -60,12 +60,12 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarProjects" aria-expanded="false" aria-controls="sidebarProjects" class="side-nav-link font-18">
+                <a data-bs-toggle="collapse" href="#sidebarSanpham" aria-expanded="false" aria-controls="sidebarSanpham" class="side-nav-link font-18">
                     <i class="uil-briefcase"></i>
                     <span> Sản phẩm </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarProjects">
+                <div class="collapse" id="sidebarSanpham">
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="{{route('product.index')}}" class="font-16">Xem</a>
@@ -77,12 +77,12 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarTasks" aria-expanded="false" aria-controls="sidebarTasks" class="side-nav-link font-18">
+                <a data-bs-toggle="collapse" href="#sidebarKhuyenMai" aria-expanded="false" aria-controls="sidebarKhuyenMai" class="side-nav-link font-18">
                     <i class="uil-clipboard-alt"></i>
                     <span> Khuyến mãi </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarTasks">
+                <div class="collapse" id="sidebarKhuyenMai">
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="{{route('khuyenmai.index')}}" class="font-16">Xem</a>
@@ -94,26 +94,26 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarDonHang" aria-expanded="false" aria-controls="sidebarDonHang" class="side-nav-link font-18">
                     <i class="uil-window"></i>
                     <span> Đơn hàng </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarLayouts">
-{{--                    <ul class="side-nav-second-level">--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('quanlydonhang')}}">Xem tất cả</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('quanlydonhang.choduyet')}}">Đơn chờ xác nhận</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('quanlydonhang.danggiao')}}">Đơn đang giao</a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="{{route('quanlydonhang.dagiao')}}">Đơn đã giao</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+                <div class="collapse" id="sidebarDonHang">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('admindonhang.choduyet')}}" class="font-16">Đơn chờ xác nhận</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admindonhang.danggiao')}}" class="font-16">Đơn đang giao</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admindonhang.dagiao')}}" class="font-16">Đơn đã giao</a>
+                        </li>
+                        <li>
+                            <a href="{{route('admindonhang.huy')}}" class="font-16">Đơn hủy</a>
+                        </li>
+                    </ul>
                 </div>
             </li>
             <li class="side-nav-item">
