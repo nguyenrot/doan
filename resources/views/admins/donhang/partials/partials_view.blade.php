@@ -168,10 +168,12 @@
                 <div class="col-4"><h5 class="float-end font-16">{{number_format($total)}} VNĐ</h5></div>
             </div>
         </div>
+        @if($donhang->active!=0)
         <div class="row mt-2">
             <div class="col-12">
                 <input type="button" class="float-end w-25 btn btn-secondary" onclick="printDiv('hoadon_donhang')" value="In hóa đơn" />
             </div>
         </div>
+        @endif
     </div>
 </div>
