@@ -36,6 +36,19 @@
     <script src="{{asset('user_resources/giohang/giohang.js')}}"></script>
     <script src="{{asset('vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
     @yield('link_js')
+    <script>
+        var msg = '{{Session::get('jsAlert')}}';
+        var exist = '{{Session::has('jsAlert')}}';
+        if(exist){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: msg,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    </script>
 </body>
 
 </html>

@@ -300,4 +300,27 @@ Route::prefix('/')->middleware('verified')->group(function (){
             'uses'=>'App\Http\Controllers\DonHangController@delete',
         ]);
     });
+
+    Route::prefix('taikhoan')->middleware('CheckDathang')->group(function (){
+        Route::get('/',[
+           'as'=>'taikhoan.index',
+           'uses'=>'App\Http\Controllers\TaiKhoanController@index'
+        ]);
+        Route::get('/edit',[
+           'as'=>'taikhoan.edit',
+           'uses'=> 'App\Http\Controllers\TaiKhoanController@edit'
+        ]);
+        Route::post('/edit',[
+            'as'=>'taikhoan.update',
+            'uses'=> 'App\Http\Controllers\TaiKhoanController@update'
+        ]);
+        Route::get('/re-pass',[
+            'as'=>'taikhoan.re_pass',
+            'uses'=> 'App\Http\Controllers\TaiKhoanController@re_pass'
+        ]);
+        Route::post('/re-pass',[
+            'as'=>'taikhoan.re_passPost',
+            'uses'=> 'App\Http\Controllers\TaiKhoanController@re_passPost'
+        ]);
+    });
 });

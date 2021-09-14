@@ -56,7 +56,7 @@
                             <div class="sub_user_header dropdown-header noti-title">
                                 <h6 class="m-0 font-16 pt-1">Xin chào !</h6>
                             </div>
-                            <a class="dropdown-item font-18" href="#"><i class="mdi mdi-account-circle me-1 font-20"></i>Tài khoản của bạn</a>
+                            <a class="dropdown-item font-18" href="{{route('taikhoan.index')}}"><i class="mdi mdi-account-circle me-1 font-20"></i>Tài khoản của bạn</a>
                             <a class="dropdown-item font-18" href="{{route('donhang.index')}}"><i class="mdi mdi-cart-check me-1 font-20"></i>Đơn hàng</a>
                             <a class="dropdown-item font-18" href="{{route('user.logout')}}"><i class="mdi mdi-logout me-1 font-20" ></i>Đăng xuất</a>
                         </div>
