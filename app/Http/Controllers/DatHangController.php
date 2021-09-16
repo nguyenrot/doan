@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\chitietdonhang;
 use App\Models\donhang;
+use App\Models\sanpham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -13,10 +14,12 @@ class DatHangController extends Controller
 {
     private $donhang;
     private $chitietdonhang;
-    public function __construct(donhang $donhang,chitietdonhang $chitietdonhang)
+    private $sanpham;
+    public function __construct(donhang $donhang,chitietdonhang $chitietdonhang,sanpham $sanpham)
     {
         $this->chitietdonhang = $chitietdonhang;
         $this->donhang = $donhang;
+        $this->sanpham = $sanpham;
     }
     public function dathang(){
         $carts = session()->get('cart');
@@ -57,6 +60,10 @@ class DatHangController extends Controller
                     'sanpham_id'=>$id,
                     'soluong'=>$item['soluong'],
                     'dongia'=>$item['dongia']
+                ]);
+                $sanpham = $this->sanpham->find($id);
+                $this->sanpham->find($id)->update([
+                   'soluong'=> $sanpham->soluong - 1,
                 ]);
             }
             $request->session()->forget('cart');

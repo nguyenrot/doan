@@ -215,6 +215,13 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses'=>'App\Http\Controllers\AdminDonHangController@xacnhandon'
         ]);
     });
+
+    Route::prefix('/baocao')->group(function (){
+        Route::get('/',[
+           'as'=>'baocao.index',
+            'uses'=>'App\Http\Controllers\AdminBaoCaoController@index'
+        ]);
+    });
 });
 
 //UserLogin

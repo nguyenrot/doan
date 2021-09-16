@@ -57,6 +57,7 @@ class AdminDashboardController extends Controller
                 $data_doanhthu[$str] = $total;
         }
         $ngay_doanhthu = array_keys($data_doanhthu);
+
         //doanh thu theo đơn hàng
         for($i=0;$i<4;$i++){
             $donhang = $this->donhang->where('active',$i)->get();
@@ -66,6 +67,7 @@ class AdminDashboardController extends Controller
             }
             $doanhthu_donhang[$i] = $total;
         }
+
 
 
         return view('admins.dashboard.index',

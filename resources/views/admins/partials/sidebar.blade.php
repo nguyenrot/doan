@@ -19,7 +19,7 @@
         <ul class="side-nav">
             <li class="side-nav-title side-nav-item font-12">Thanh công cụ</li>
             <li class="side-nav-item">
-                <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link font-18">
+                <a href="{{route('admin.dashboard.index')}}" class="side-nav-link font-18">
                     <i class="uil-home-alt"></i>
                     <span> Dashboards </span>
                 </a>
@@ -117,10 +117,25 @@
                 </div>
             </li>
             <li class="side-nav-item">
-                <a href="apps-file-manager.html" class="side-nav-link">
+                <a data-bs-toggle="collapse" href="#sidebarBaoCao" aria-expanded="false" aria-controls="sidebarBaoCao" class="side-nav-link font-18">
                     <i class="uil-folder-plus"></i>
                     <span> Báo cáo thống kê </span>
+                    <span class="menu-arrow"></span>
                 </a>
+                <div class="collapse" id="sidebarBaoCao">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="{{route('baocao.index')}}" class="font-16">Doanh thu đạt được</a>
+                        </li>
+                        <li>
+                            <a href="123" class="font-16">Doanh thu dự kiến</a>
+                        </li>
+                        <li>
+                            <a href="456" class="font-16">Sản phẩm</a>
+                        </li>
+
+                    </ul>
+                </div>
             </li>
             <li class="side-nav-title side-nav-item mt-1 font-12">Tài khoản</li>
         </ul>
