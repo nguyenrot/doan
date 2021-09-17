@@ -221,6 +221,18 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
            'as'=>'baocao.index',
             'uses'=>'App\Http\Controllers\AdminBaoCaoController@index'
         ]);
+        Route::get('/selectDT',[
+            'as'=>'baocao.selectdt',
+            'uses'=>'App\Http\Controllers\AdminBaoCaoController@selectdt'
+        ]);
+        Route::get('/dukien',[
+            'as'=>'baocao.dtdk',
+            'uses'=>'App\Http\Controllers\AdminBaoCaoController@dtdk'
+        ]);
+        Route::get('/dukien/selectDTDK',[
+            'as'=>'baocao.selectdtdk',
+            'uses'=>'App\Http\Controllers\AdminBaoCaoController@selectdtdk'
+        ]);
     });
 });
 

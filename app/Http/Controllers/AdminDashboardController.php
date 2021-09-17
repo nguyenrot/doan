@@ -68,12 +68,13 @@ class AdminDashboardController extends Controller
             $doanhthu_donhang[$i] = $total;
         }
 
-
-
         return view('admins.dashboard.index',
             compact('totalUer','totalView','totalDonHang','totalDanhGia',
             'ngay_doanhthu','data_doanhthu','doanhthu_donhang'));
     }
+
+
+
     private function doanhthu($item){
         $total = 0;
         foreach ($item as $ctdn){

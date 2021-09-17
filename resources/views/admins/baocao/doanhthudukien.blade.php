@@ -1,6 +1,6 @@
 @extends('admins.layouts.admin')
 @section('title')
-    <title>Doanh thu đạt được</title>
+    <title>Doanh thu dự kiến</title>
 @endsection
 @section('link_css')
     <link href="{{asset('resource/assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css" />
@@ -17,7 +17,7 @@
                         <li class="breadcrumb-item active font-16"><a href="javascript: void(0);">Báo cáo</a></li>
                     </ol>
                 </div>
-                <h2 class="page-title font-24">Doanh thu đạt được (Đơn hàng thành công)</h2>
+                <h2 class="page-title font-24">Doanh thu dự kiến (Tất cả đơn hàng)</h2>
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row" data-url="{{route('baocao.selectdt')}}">
+                    <div class="row" data-url="{{route('baocao.selectdtdk')}}">
                         <div class="col-6">
                             <label for="example-date" class="form-label">Từ ngày</label>
                             <input class="form-control" id="date_start" type="date" name="date" value="{{$data[count($data)-1]['ngay']}}">
