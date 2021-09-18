@@ -68,12 +68,39 @@ class AdminDashboardController extends Controller
             $doanhthu_donhang[$i] = $total;
         }
 
+        //số lượng đơn hàng
+        $i=0;
+        foreach ($donhang_created as $ngay){
+            $day = date('d', strtotime($ngay));
+            $month = date('m', strtotime($ngay));
+            $year = date('Y', strtotime($ngay));
+            $str = $day.'/'.$month.'/'.$year;
+            $donhang = $this->donhang
+                ->where('active',3)
+                ->whereDay('Created_at',$day)
+                ->whereMonth('Created_at',$month)
+                ->whereYear('Created_at',$year)->count();
+            $data_sldonhang[$i] = $donhang;
+            $i++;
+        }
+
+        //binhluan
+        $binhluan = $this->danhgia->get();
+
         return view('admins.dashboard.index',
             compact('totalUer','totalView','totalDonHang','totalDanhGia',
-            'ngay_doanhthu','data_doanhthu','doanhthu_donhang'));
+            'ngay_doanhthu','data_doanhthu','doanhthu_donhang','binhluan','data_sldonhang'));
     }
 
-
+    public function delete(Request $request){
+        $this->danhgia->find($request->id)->delete();
+        $binhluan = $this->danhgia->get();
+        $partials_binhluan = view('admins.dashboard.partials.binhluan',compact('binhluan'))->render();
+        return response()->json([
+           'code'=>200,
+           'partials_binhluan'=> $partials_binhluan
+        ],200);
+    }
 
     private function doanhthu($item){
         $total = 0;

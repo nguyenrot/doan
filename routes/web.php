@@ -57,6 +57,11 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
        'uses'=>'App\Http\Controllers\AdminDashboardController@index',
     ]);
 
+    Route::get('/xoabinhluan',[
+        'as'=>'admin.dashboard.delete',
+        'uses'=>'App\Http\Controllers\AdminDashboardController@delete',
+    ]);
+
     Route::prefix('categories')->group(function (){
         Route::get('/',[
             'as' =>'categories.index',

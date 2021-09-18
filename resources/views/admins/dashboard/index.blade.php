@@ -68,22 +68,39 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="row">
-                        <div class="col-xl-6 order-lg-2 order-xl-1">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="p-0 text-center">Doanh thu theo ngày</h3>
-                                    <div id="tongdoanhthu" class="font-18" style="min-height: 400px">
-                                    </div>
+                    <div class="col-xl-6 order-lg-2 order-xl-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="p-0 text-center">Doanh thu theo ngày</h3>
+                                <div id="tongdoanhthu" class="font-18" style="min-height: 400px">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-6 order-lg-2 order-xl-1">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="p-0 text-center">Doanh thu theo loại đơn hàng</h3>
-                                    <div id="doanhthudonhang" class="font-18" style="min-height: 400px">
-                                    </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-12 order-xl-2">
+                        <div class="card">
+                            <div class="card-body dashboard-binhluan">
+                                @include('admins.dashboard.partials.binhluan')
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+                <div class="row">
+                    <div class="col-xl-6 order-lg-2 order-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="p-0 text-center">Doanh thu theo loại đơn hàng</h3>
+                                <div id="doanhthudonhang" class="font-18" style="min-height: 400px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 order-lg-2 order-xl-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="p-0 text-center">Số lượng đơn hàng theo ngày</h3>
+                                <div id="donhangsl" class="font-18" style="min-height: 400px">
                                 </div>
                             </div>
                         </div>
@@ -95,12 +112,14 @@
 
 @endsection
 @section('link_js')
+    <script src="{{asset('vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
     <script src="{{asset('admin_resources/dashboard/apexcharts.js')}}"></script>
     <script src="{{asset('admin_resources/dashboard/dashboard.js')}}"></script>
     <script>
         let ngay_doanhthu = <?php echo json_encode($ngay_doanhthu);?>;
         let doanhthu_ngay = Object.values(<?php echo json_encode($data_doanhthu);?>);
         let doanhthu_donhang = Object.values(<?php echo json_encode($doanhthu_donhang);?>);
+        let sl_donhang = Object.values(<?php echo json_encode($data_sldonhang);?>);
 
         let doanhthudonhang = {
             series: doanhthu_donhang,
@@ -179,16 +198,59 @@
                 categories: ngay_doanhthu,
                 labels: {
                     style: {
-                        fontSize: '14px'
+                        fontSize: '15px'
                     },
                 },
             }
         };
+        let sldonhang = {
+            series: [{
+                name: "Sl Đơn hàng",
+                data: sl_donhang,
+            }],
+            chart: {
+                type: 'bar',
+                events: {
+                    click: function(chart, w, e) {
+                        // console.log(chart, w, e)
+                    }
+                }
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '45%',
+                    distributed: true,
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            legend: {
+                show: false
+            },
+            yaxis:{
+                labels: {
+                    style: {
+                        fontSize: '16px'
+                    }
+                }
+            },
+            xaxis: {
+                categories: ngay_doanhthu,
+                labels: {
+                    style: {
+                        fontSize: '16px'
+                    }
+                }
+            }
+        };
+
 
         let doanhthu = new ApexCharts(document.querySelector("#tongdoanhthu"), tongdoanhthu);
         doanhthu.render();
         let donhang = new ApexCharts(document.querySelector("#doanhthudonhang"), doanhthudonhang);
         donhang.render();
-
+        let donhangsl = new ApexCharts(document.querySelector("#donhangsl"), sldonhang);
+        donhangsl.render();
     </script>
 @endsection
