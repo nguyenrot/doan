@@ -12,7 +12,7 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item font-16"><a href="javascript: void(0);">New Shop</a></li>
+                        <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Admin</a></li>
                         <li class="breadcrumb-item active font-16">Dashboard</li>
                     </ol>
                 </div>

@@ -243,6 +243,17 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
            'uses'=>'App\Http\Controllers\AdminBaoCaoController@sanpham'
         ]);
     });
+
+    Route::prefix('/user')->group(function (){
+        Route::get('/',[
+            'as'=>'admins.user.index',
+            'uses'=>'App\Http\Controllers\AdminUserController@index'
+        ]);
+        Route::get('/user.active',[
+            'as'=>'admins.user.active',
+            'uses'=>'App\Http\Controllers\AdminUserController@active'
+        ]);
+    });
 });
 
 //UserLogin

@@ -138,6 +138,29 @@
                 </div>
             </li>
             <li class="side-nav-title side-nav-item mt-1 font-12">Tài khoản</li>
+            <li class="side-nav-item">
+                <a href="{{route('admins.user.index')}}" class="side-nav-link font-18">
+                    <i class="uil-user-check"></i>
+                    <span> Tài khoản user </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a data-bs-toggle="collapse" href="#sidebarAdmin" aria-expanded="false" aria-controls="sidebarAdmin" class="side-nav-link font-18">
+                    <i class=" uil-user-square"></i>
+                    <span> Tài khoản admin </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarAdmin">
+                    <ul class="side-nav-second-level">
+                        <li>
+                            <a href="123" class="font-16">Tài khoản admin</a>
+                        </li>
+                        <li>
+                            <a href="456" class="font-16">Thêm tài khoản admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
         <div class="clearfix"></div>
     </div>

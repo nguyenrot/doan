@@ -1,12 +1,14 @@
+
 function myFunctionActive (event){
     let urlRequest = $(this).data('url');
-    let that = $(this);
+    let id = $(this).data('id');
     $.ajax({
-        type:'GET',
+        type:"GET",
         url: urlRequest,
+        data:{'id':id}
     })
 }
 $(function (){
-    $(document).on('click','.active_sanpham',myFunctionActive)
+    $(document).on('click','.active_user',myFunctionActive)
 });
 
