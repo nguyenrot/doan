@@ -35,6 +35,11 @@ class UserLoginController extends Controller
                 $message = "Tài khoản này là tài khoản quản trị viên";
                 return view('users.login',compact('message'));
             }
+            if(auth()->user()->active==0){
+                auth()->logout();
+                $message = "Tài khoản này đã bị vô hiệu hóa";
+                return view('users.login',compact('message'));
+            }
             return redirect()->route('home');
         } else {
             $message = "Email hoặc tài khoản sai";

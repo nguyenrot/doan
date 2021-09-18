@@ -254,6 +254,24 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses'=>'App\Http\Controllers\AdminUserController@active'
         ]);
     });
+    Route::prefix('/admin')->middleware('can:gate-admin')->group(function (){
+        Route::get('/',[
+            'as'=>'admins.admin.index',
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@index'
+        ]);
+        Route::get('/user.active',[
+            'as'=>'admins.admin.active',
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@active'
+        ]);
+        Route::get('/addAdmin',[
+            'as'=>'admins.admin.add',
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@add'
+        ]);
+        Route::post('addAdmin',[
+            'as'=>'admins.admin.addPost',
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@addPost'
+        ]);
+    });
 });
 
 //UserLogin

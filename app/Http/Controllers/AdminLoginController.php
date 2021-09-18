@@ -22,6 +22,11 @@ class AdminLoginController extends Controller
                 $message = "Tài khoản này không phải quản trị viên";
                 return view('admins.login',compact('message'));
             }
+            if(Auth::guard('admin')->user()->active===0){
+                Auth::guard('admin')->logout();
+                $message = "Tài khoản này đã bị vô hiệu hóa";
+                return view('admins.login',compact('message'));
+            }
             return redirect()->route('admin.dashboard.index');
         } else {
             $message = "Email hoặc tài khoản sai";
