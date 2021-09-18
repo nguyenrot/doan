@@ -233,6 +233,10 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'as'=>'baocao.selectdtdk',
             'uses'=>'App\Http\Controllers\AdminBaoCaoController@selectdtdk'
         ]);
+        Route::get('/sanpham',[
+           'as'=>'baocao.sanpham',
+           'uses'=>'App\Http\Controllers\AdminBaoCaoController@sanpham'
+        ]);
     });
 });
 

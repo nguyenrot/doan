@@ -25,7 +25,7 @@ function onChangeDate(){
         });
         let timerInterval
         Swal.fire({
-            title: 'Chờ vài giây!',
+            title: '',
             // html: 'I will close in <b></b> milliseconds.',
             timer: 2000,
             timerProgressBar: false,

@@ -131,7 +131,7 @@
                             <a href="{{route('baocao.dtdk')}}" class="font-16">Doanh thu dự kiến</a>
                         </li>
                         <li>
-                            <a href="456" class="font-16">Sản phẩm</a>
+                            <a href="{{route('baocao.sanpham')}}" class="font-16">Sản phẩm</a>
                         </li>
 
                     </ul>

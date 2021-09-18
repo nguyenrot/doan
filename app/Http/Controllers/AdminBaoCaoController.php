@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\chitietdonhang;
 use App\Models\donhang;
+use App\Models\sanpham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use function Symfony\Component\Translation\t;
 
 class AdminBaoCaoController extends Controller
 {
     private $donhang;
-    public function __construct(donhang $donhang)
+    private $ctdh;
+    private $sanpham;
+    public function __construct(donhang $donhang,chitietdonhang $ctdh,sanpham $sanpham)
     {
         $this->donhang = $donhang;
+        $this->ctdh = $ctdh;
+        $this->sanpham = $sanpham;
     }
     public function index(){
         $donhang_created = $this->donhang->select(DB::raw('DATE(Created_at) as month'))
@@ -105,13 +112,6 @@ class AdminBaoCaoController extends Controller
             'load_js'=>$load_js,
         ],200);
     }
-    private function doanhthu($item){
-        $total = 0;
-        foreach ($item as $ctdn){
-            $total += doubleval($ctdn->soluong*doubleval($ctdn->dongia));
-        }
-        return $total;
-    }
     public function selectdtdk(Request $request){
         $donhang_created = $this->donhang->select(DB::raw('DATE(Created_at) as month'))
             ->whereIn('active',[1,2,3])->distinct()->orderBy('Created_at', 'desc')->pluck("month");
@@ -149,6 +149,39 @@ class AdminBaoCaoController extends Controller
             'tableData'=>$tableData,
             'load_js'=>$load_js,
         ],200);
+    }
+    public function sanpham(){
+        $sanpham = $this->sanpham->where('active',1)->get();
+        $data = array();
+        foreach ($sanpham as $item){
+            $data[$item->id] =[
+                'name'=>$item->tensp,
+                'view'=>$item->view,
+                'mua'=>$this->qualityProduct($item->id),
+                'tonkho'=>$item->soluong,
+            ];
+        }
+        return view('admins.baocao.sanpham',compact('data'));
+    }
+    private function doanhthu($item){
+        $total = 0;
+        foreach ($item as $ctdn){
+            $total += doubleval($ctdn->soluong*doubleval($ctdn->dongia));
+        }
+        return $total;
+    }
+    private function qualityProduct($id){
+        $sum = 0;
+        $donhang = $this->donhang->where('active',3)->get();
+        foreach ($donhang as $dh){
+            $cthd = $dh->chitietdonhang;
+            foreach ($cthd as $ctitem){
+                if ($ctitem->sanpham_id == $id){
+                    $sum+=$ctitem->soluong;
+                }
+            }
+        }
+        return $sum;
     }
     private function quality($item){
         $soluong = 0;
