@@ -12,10 +12,10 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item font-16"><a href="javascript: void(0);">Admin</a></li>
-                        <li class="breadcrumb-item active font-16"><a href="javascript: void(0);">Danh mục</a></li>
+                        <li class="breadcrumb-item active font-16"><a href="javascript: void(0);">Tài khoản</a></li>
                     </ol>
                 </div>
-                <h2 class="page-title font-24">Danh mục</h2>
+                <h2 class="page-title font-24">Thông tin tài khoản</h2>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
                             @include('admins.taikhoan.partials.info')
                             <div class="text-center">
                                 <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#infomodal">Thay đổi thông tin</button>
-                                <a href="" class="btn btn-outline-dark rounded-pill">Đổi mật khẩu</a>
+                                <a href="{{route('admintaikhoan.re_pass')}}" class="btn btn-outline-dark rounded-pill">Đổi mật khẩu</a>
                                 <div class="modal fade" id="infomodal" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">

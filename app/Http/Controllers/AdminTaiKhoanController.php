@@ -25,15 +25,18 @@ class AdminTaiKhoanController extends Controller
         ]);
         return redirect()->route('admintaikhoan.index')->with('jsAlert', 'Thay đổi thông tin thành công!');
     }
+    public function re_pass(){
+        return view('admins.taikhoan.re_password');
+    }
     public function re_passPost(MatKhauRequest $request){
         if (Hash::check($request->password_old,auth()->user()->getAuthPassword())){
             $this->user->find(auth()->user()->id)->update([
                 'password'=>Hash::make($request->password),
             ]);
-            return redirect()->route('taikhoan.index')->with('jsAlert', 'Thay đổi mật khẩu thành công!');
+            return redirect()->route('admintaikhoan.index')->with('jsAlert', 'Thay đổi mật khẩu thành công!');
         } else {
             $message = "Mật khẩu cũ không đúng";
-            return view('users.taikhoan.re_pass',compact('message'));
+            return view('admins.taikhoan.re_password',compact('message'));
         }
     }
 }

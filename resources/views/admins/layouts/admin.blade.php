@@ -39,5 +39,18 @@
         <script src="{{asset('resource/assets/js/vendor.min.js')}}"></script>
         <script src="{{asset('resource/assets/js/app.min.js')}}"></script>
         @yield('link_js')
+        <script>
+            var msg = '{{Session::get('jsAlert')}}';
+            var exist = '{{Session::has('jsAlert')}}';
+            if(exist){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: msg,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+        </script>
     </body>
 </html>

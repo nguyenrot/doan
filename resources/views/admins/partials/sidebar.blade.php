@@ -1,5 +1,5 @@
 <div class="leftside-menu">
-    <a href="index.html" class="logo text-center logo-light">
+    <a href="{{route('admin.dashboard.index')}}" class="logo text-center logo-light">
         <span class="logo-lg">
             <img src="{{asset('resource/assets/images/logo.png')}}" alt="">
         </span>
@@ -7,7 +7,7 @@
             <img src="{{asset('resource/assets/images/logo_sm.png')}}" alt="">
         </span>
     </a>
-    <a href="index.html" class="logo text-center logo-dark">
+    <a href="{{route('admin.dashboard.index')}}" class="logo text-center logo-dark">
         <span class="logo-lg">
             <img src="{{asset('resource/assets/images/logo-dark.png')}}" alt="">
         </span>

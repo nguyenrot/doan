@@ -281,6 +281,10 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'as'=>'admintaikhoan.update',
             'uses'=> 'App\Http\Controllers\AdminTaiKhoanController@update'
         ]);
+        Route::get('/re-pass',[
+            'as'=>'admintaikhoan.re_pass',
+            'uses'=> 'App\Http\Controllers\AdminTaiKhoanController@re_pass'
+        ]);
         Route::post('/re-pass',[
             'as'=>'admintaikhoan.re_passPost',
             'uses'=> 'App\Http\Controllers\AdminTaiKhoanController@re_passPost'
