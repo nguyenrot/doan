@@ -254,7 +254,7 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses'=>'App\Http\Controllers\AdminUserController@active'
         ]);
     });
-    Route::prefix('/admin')->middleware('can:gate-admin')->group(function (){
+    Route::prefix('/admin')->group(function (){
         Route::get('/',[
             'as'=>'admins.admin.index',
             'uses'=>'App\Http\Controllers\QuanLyAdminController@index'
@@ -270,7 +270,7 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
         Route::post('addAdmin',[
             'as'=>'admins.admin.addPost',
             'uses'=>'App\Http\Controllers\QuanLyAdminController@addPost'
-        ]);
+        ])->middleware('can:checkquantri');
     });
 });
 

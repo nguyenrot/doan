@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('gate-admin', function ($user) {
+        Gate::define('checkquantri', function ($user) {
             $user = auth()->guard('admin')->user();
             return $user->loaitaikhoan === 1;
         });
