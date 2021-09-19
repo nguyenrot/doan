@@ -254,23 +254,37 @@ Route::prefix('admin')->middleware('CheckAdmin')->group(function (){
             'uses'=>'App\Http\Controllers\AdminUserController@active'
         ]);
     });
-    Route::prefix('/admin')->group(function (){
+    Route::prefix('/admin')->middleware('CheckQuanTri')->group(function (){
         Route::get('/',[
             'as'=>'admins.admin.index',
-            'uses'=>'App\Http\Controllers\QuanLyAdminController@index'
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@index',
         ]);
         Route::get('/user.active',[
             'as'=>'admins.admin.active',
-            'uses'=>'App\Http\Controllers\QuanLyAdminController@active'
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@active',
         ]);
         Route::get('/addAdmin',[
             'as'=>'admins.admin.add',
-            'uses'=>'App\Http\Controllers\QuanLyAdminController@add'
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@add',
         ]);
         Route::post('addAdmin',[
             'as'=>'admins.admin.addPost',
-            'uses'=>'App\Http\Controllers\QuanLyAdminController@addPost'
-        ])->middleware('can:checkquantri');
+            'uses'=>'App\Http\Controllers\QuanLyAdminController@addPost',
+        ]);
+    });
+    Route::prefix('taikhoan')->group(function (){
+        Route::get('/',[
+            'as'=>'admintaikhoan.index',
+            'uses'=>'App\Http\Controllers\AdminTaiKhoanController@index'
+        ]);
+        Route::post('/edit',[
+            'as'=>'admintaikhoan.update',
+            'uses'=> 'App\Http\Controllers\AdminTaiKhoanController@update'
+        ]);
+        Route::post('/re-pass',[
+            'as'=>'admintaikhoan.re_passPost',
+            'uses'=> 'App\Http\Controllers\AdminTaiKhoanController@re_passPost'
+        ]);
     });
 });
 

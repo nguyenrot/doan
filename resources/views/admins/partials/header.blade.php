@@ -33,7 +33,7 @@
                 <div class=" dropdown-header noti-title">
                     <h6 class="text-overflow m-0 font-16">Xin chào !</h6>
                 </div>
-                <a href="" class="dropdown-item notify-item font-18">
+                <a href="{{route('admintaikhoan.index')}}" class="dropdown-item notify-item font-18">
                     <i class="mdi mdi-account-circle me-1"></i>
                     <span>Thông tin tài khoản</span>
                 </a>

@@ -144,7 +144,7 @@
                     <span> Tài khoản user </span>
                 </a>
             </li>
-            @can('gate-admin')
+            @if(auth()->guard('admin')->user()->loaitaikhoan===1)
                 <li class="side-nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarAdmin" aria-expanded="false" aria-controls="sidebarAdmin" class="side-nav-link font-18">
                         <i class=" uil-user-square"></i>
@@ -162,7 +162,7 @@
                         </ul>
                     </div>
                 </li>
-            @endcan
+            @endif
         </ul>
         <div class="clearfix"></div>
     </div>

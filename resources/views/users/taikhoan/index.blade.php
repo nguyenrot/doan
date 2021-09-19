@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{{asset('user_resources/category/category.css')}}">
 @endsection()
 @section('link_js')
+    <script src="{{asset('vendor/sweetAlert2/sweetalert2@11.js')}}"></script>
+
     <script src="{{asset('user_resources/category/category.js')}}"></script>
     <script src="{{asset('user_resources/taikhoan/taikhoan.js')}}"></script>
 @endsection()
