@@ -37,8 +37,8 @@ class AdminDashboardController extends Controller
 
 
         //doanh thu theo ngày
-        $donhang_created = $this->donhang->select(DB::raw('DATE(Created_at) as month'))
-            ->where('active',3)->distinct()->take(5)->orderBy('Created_at', 'asc')->pluck("month");
+        $donhang_created = $this->donhang->select(DB::raw('DATE(Created_at) as month'))->where('active',3)->distinct();
+        $donhang_created = $donhang_created->orderBy('month')->take(5)->pluck("month");
         $ngay_doanhthu = array();
         foreach ($donhang_created as $ngay){
             $day = date('d', strtotime($ngay));
