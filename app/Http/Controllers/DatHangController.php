@@ -62,9 +62,19 @@ class DatHangController extends Controller
                     'dongia'=>$item['dongia']
                 ]);
                 $sanpham = $this->sanpham->find($id);
-                $this->sanpham->find($id)->update([
-                   'soluong'=> $sanpham->soluong - 1,
-                ]);
+                $soluong = $sanpham->soluong - $item['soluong'];
+                if ($soluong<0){
+                    DB::rollBack();
+                    $message = "Sản phẩm ". $sanpham->tensp. " đã hết hoặc không đủ số lượng sản phẩm bạn cần mua";
+                    return Response()->json([
+                        'code'=>201,
+                        'message'=>$message,
+                    ],200);
+                } else{
+                    $this->sanpham->find($id)->update([
+                        'soluong'=> $soluong,
+                    ]);
+                }
             }
             $request->session()->forget('cart');
             $request->session()->forget('donhang');

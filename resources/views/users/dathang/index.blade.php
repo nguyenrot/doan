@@ -27,7 +27,7 @@
                                     <div class="col-lg-7">
                                         <h3 class="mt-4">Địa chỉ</h3>
                                         <p class="font-16 text-muted mb-4">Điền vào biểu mẫu bên dưới để chúng tôi có thể gửi đơn hàng cho bạn.</p>
-                                        <form id="form-dathang" action="{{route('dathangpost')}}" method="post" data-value="{{'donhang'}}">
+                                        <form id="form-dathang" action="{{route('dathangpost')}}" method="post" data-value="{{'donhang'}}" data-giohang="{{route('giohang.index')}}">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-12">

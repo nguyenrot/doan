@@ -39,6 +39,7 @@ fetch('https://provinces.open-api.vn/api/')
 $("#form-dathang").submit(function (e){
     let url = $('#form-dathang').attr('action');
     let urlNext = $('#form-dathang').data('value');
+    let urlGioHang = $('#form-dathang').data('giohang');
     $.ajax({
         type:"POST",
         url:url,
@@ -55,6 +56,18 @@ $("#form-dathang").submit(function (e){
                 })
                 setTimeout(function() {
                     window.location.href = urlNext;
+                }, 1500);
+            }
+            if (data.code===201){
+                Swal.fire({
+                    position: 'Center',
+                    icon: 'error',
+                    title: data.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                setTimeout(function() {
+                    window.location.href = urlGioHang;
                 }, 1500);
             }
         }
