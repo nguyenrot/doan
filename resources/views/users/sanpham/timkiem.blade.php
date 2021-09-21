@@ -1,6 +1,6 @@
 @extends('users.layouts.home')
 @section('title')
-    <title>New Shop | Sản phẩm Danh mục</title>
+    <title>New Shop | Tìm kiếm sản phẩm</title>
 @endsection
 @section('link_css')
     <link rel="stylesheet" href="{{asset('user_resources/category/category.css')}}">
