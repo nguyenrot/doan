@@ -38,28 +38,39 @@ function updateCart(e){
     let urlUpdate = $('.update-cart-url').data('url');
     let id = $(this).data('id');
     let soluong = $(this).parents('tr').find('input.soluong').val();
-    $.ajax({
-        type:"GET",
-        url:urlUpdate,
-        data: {id:id,soluong:soluong},
-        success: function (data){
-            if(data.code===200){
-                $('.cart_wrapper').html(data.cartPartials)
-                $('.cart_sub_partials').html(data.sub_carts);
-                $('.soluong-cart').text(data.total_sp)
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Cập nhập giỏ hàng thành công!',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        },
-        error:function (){
+    if (soluong<0){
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Số lượng phải lớn hơn 0',
+            showConfirmButton: false,
+            timer: 1500
+        })
+        $(this).parents('tr').find('input.soluong').focus();
+    } else {
+        $.ajax({
+            type:"GET",
+            url:urlUpdate,
+            data: {id:id,soluong:soluong},
+            success: function (data){
+                if(data.code===200){
+                    $('.cart_wrapper').html(data.cartPartials)
+                    $('.cart_sub_partials').html(data.sub_carts);
+                    $('.soluong-cart').text(data.total_sp)
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Cập nhập giỏ hàng thành công!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            },
+            error:function (){
 
-        }
-    })
+            }
+        })
+    }
 }
 function deleteCart(e){
     e.preventDefault();
