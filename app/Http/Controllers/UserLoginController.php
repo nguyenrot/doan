@@ -78,4 +78,8 @@ class UserLoginController extends Controller
         auth()->logout();
         return redirect()->route('home');
     }
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
 }

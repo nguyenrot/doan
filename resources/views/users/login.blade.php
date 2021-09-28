@@ -7,6 +7,18 @@
 @endsection()
 @section('link_js')
     <script src="{{asset('user_resources/category/category.js')}}"></script>
+    <script type="text/javascript">
+        $('#reload').click(function () {
+            let url = $(this).data('url');
+            $.ajax({
+                type: 'GET',
+                url: url,
+                success: function (data) {
+                    $(".captcha span").html(data.captcha);
+                }
+            });
+        });
+    </script>
 @endsection()
 @section('content')
 
@@ -43,7 +55,27 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="captcha" class="form-label">Nhập mã captcha</label>
+                                        <div class="row">
+                                            <div class="captcha col-5">
+                                                <span>{!! captcha_img() !!}</span>
+                                                <button type="button" class="btn btn-outline-dark ms-2-2 reload" data-url="{{route('user.reloadcaptcha')}}" id="reload">
+                                                    &#x21bb;
+                                                </button>
+                                            </div>
+                                            <div class="input-group-merge col-7">
+                                                <input id="captcha" type="text" class="form-control  @error('captcha') is-invalid @enderror" placeholder="Nhập Captcha" name="captcha">
+                                            </div>
+                                        </div>
+                                    </div>
                                     @error('password')
+                                    <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
+                                    @error('captcha')
                                     <div class="alert alert-danger alert-dismissible bg-danger text-white border-0 fade show" role="alert">
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                         <strong>{{ $message }}</strong>
@@ -73,5 +105,4 @@
             </div>
         </div>
     </section>
-
 @endsection()

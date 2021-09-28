@@ -318,6 +318,10 @@ Route::prefix('/')->group(function (){
         'as'=>'user.logout',
         'uses'=>'App\Http\Controllers\UserLoginController@logout',
     ]);
+    Route::get('/reload-captcha',[
+       'as'=>'user.reloadcaptcha',
+       'uses'=>'\App\Http\Controllers\UserLoginController@reloadCaptcha'
+    ]);
 });
 
 //Web

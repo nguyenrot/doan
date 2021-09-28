@@ -26,6 +26,7 @@ class UserLoginRequest extends FormRequest
         return [
             'email'=>'bail|required|min:10|max:255',
             'password'=>'bail|required|min:8|max:32',
+            'captcha' => 'required|captcha'
         ];
     }
     public function messages()
@@ -35,7 +36,8 @@ class UserLoginRequest extends FormRequest
             'email.min'=>'Emai phải có it nhất 10 ký tự',
             'password.min'=>'Mật khẩu phải có ít nhất 8 ký tự',
             'email.max'=>'Email tối đa 255 ký tự',
-            'password.max'=>'Mật khẩu tối đa 32 ký tự'
+            'password.max'=>'Mật khẩu tối đa 32 ký tự',
+            'captcha.captcha'=>'Sai captcha'
         ];
     }
 }
